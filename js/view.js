@@ -1,45 +1,48 @@
 var ListView = function() {
-    var input = document.getElementById('todo-input'),
-        list = document.getElementById('todo-list'),
-        database = new Database();
+    this.input = document.getElementById('todo-input');
+    this.list = document.getElementById('todo-list');
+    this.database = new Database();
 
     var self = this;
-    input.addEventListener('keyup', function(event) {
-        if (event.keyCode !== 13 || input.value === '') return;
-        self.addItem(input, database);
-        self.update(list, database);
+    self.input.addEventListener('keyup', function(event) {
+        if (event.keyCode !== 13 || self.input.value === '') return;
+        self.addItem();
+        self.update();
     });
 
-    self.update(list, database);
+    self.update();
 };
 
-ListView.prototype.addItem = function(input, database) {
-    database.addItem({
-        title: input.value
-    });
-};
-
-ListView.prototype.update = function(list, database) {
-    list.innerHTML = '';
-
-    database.getItems().forEach(function(data) {
-        var item = new Item(data);
-        list.appendChild(item.render());
+ListView.prototype.addItem = function() {
+    this.database.addItem({
+        title: this.input.value
     });
 };
 
-var Item = function(data) {
+ListView.prototype.update = function() {
+    var self = this;
+    self.list.innerHTML = '';
+
+    self.database.getItems().forEach(function(data) {
+        var item = new Item(data, self);
+        self.list.appendChild(item.render());
+    });
+};
+
+var Item = function(data, listview) {
     this.id = data.id;
     this.title = data.title;
+    this.listview = listview;
 };
 
 Item.prototype.render = function() {
+    var self = this;
+
     var element = document.createElement('section'),
         trash = document.createElement('p');
 
     var remove = document.createTextNode('X'),
         title = document.createTextNode(this.title);
-
 
     element.setAttribute("id", this.id);
     element.setAttribute("class", "list-item");
@@ -49,8 +52,12 @@ Item.prototype.render = function() {
     element.appendChild(trash);
 
     trash.addEventListener('click', function() {
-        var word = element.getAttribute('id');
-        alert(word);
+        var id = element.getAttribute('id'),
+            database = new Database();
+
+        database.removeItem(id);
+        self.listview.update();
+
     });
 
     return element;

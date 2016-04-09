@@ -11,7 +11,7 @@ var Database = function() {
 Database.prototype.getUniqueId = function() {
     var id = localStorage.getItem(this.ID_COUNT);
     localStorage.setItem(this.ID_COUNT, ++id);
-    return id;
+    return id.toString();
 };
 
 Database.prototype.getItems = function() {
@@ -23,6 +23,16 @@ Database.prototype.addItem = function(item) {
     items.push({
         id: this.getUniqueId(),
         title: item.title
+    });
+    localStorage.setItem(this.KEY, JSON.stringify(items));
+};
+
+Database.prototype.removeItem = function(id) {
+    var items = JSON.parse(localStorage.getItem(this.KEY));
+    items.forEach(function(item) {
+        if (item.id === id) {
+            items.splice(items.indexOf(item), 1);
+        }
     });
     localStorage.setItem(this.KEY, JSON.stringify(items));
 };

@@ -43,7 +43,6 @@ Item.prototype.render = function() {
     var remove = document.createTextNode('X'),
         title = document.createTextNode(this.title);
 
-    element.setAttribute("id", this.id);
     element.setAttribute("class", "list-item");
     element.appendChild(title);
 

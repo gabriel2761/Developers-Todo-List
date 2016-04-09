@@ -4,11 +4,17 @@ var ListView = function() {
     this.database = new Database();
 
     var self = this;
+
     self.input.addEventListener('keyup', function(event) {
         if (event.keyCode !== 13 || this.value === '') return;
         self.addItem();
         self.update();
         this.value = '';
+    });
+
+    document.addEventListener('keyup', function(event) {
+        if (event.keyCode !== 191) return;
+        self.input.focus();
     });
 };
 

@@ -35,10 +35,24 @@ var Item = function(data) {
 
 Item.prototype.render = function() {
     var element = document.createElement('section'),
+        trash = document.createElement('p');
+
+    var remove = document.createTextNode('X'),
         title = document.createTextNode(this.title);
+
+
     element.setAttribute("id", this.id);
     element.setAttribute("class", "list-item");
     element.appendChild(title);
+
+    trash.appendChild(remove);
+    element.appendChild(trash);
+
+    trash.addEventListener('click', function() {
+        var word = element.getAttribute('id');
+        alert(word);
+    });
+
     return element;
 };
 

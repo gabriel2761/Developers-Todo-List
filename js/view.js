@@ -5,9 +5,10 @@ var ListView = function() {
 
     var self = this;
     self.input.addEventListener('keyup', function(event) {
-        if (event.keyCode !== 13 || self.input.value === '') return;
+        if (event.keyCode !== 13 || this.value === '') return;
         self.addItem();
         self.update();
+        this.value = '';
     });
 };
 

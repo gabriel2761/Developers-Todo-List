@@ -9,8 +9,6 @@ var ListView = function() {
         self.addItem();
         self.update();
     });
-
-    self.update();
 };
 
 ListView.prototype.addItem = function() {
@@ -52,10 +50,9 @@ Item.prototype.render = function() {
     element.appendChild(trash);
 
     trash.addEventListener('click', function() {
-        var id = element.getAttribute('id'),
-            database = new Database();
+        var database = new Database();
 
-        database.removeItem(id);
+        database.removeItem(self.id);
         self.listview.update();
 
     });

@@ -16,6 +16,10 @@ body {
     margin-bottom: 26px;
 }
 
+.list-item {
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

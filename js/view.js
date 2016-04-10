@@ -43,17 +43,19 @@ var Item = function(data, listview) {
 Item.prototype.render = function() {
     var self = this;
 
-    var element = document.createElement('section'),
-        trash = document.createElement('p');
-
-    var remove = document.createTextNode('X'),
+    var item = document.createElement('section'),
+        heading = document.createElement('h3'),
         title = document.createTextNode(this.title);
 
-    element.setAttribute("class", "list-item");
-    element.appendChild(title);
+    var trash = document.createElement('p'),
+        remove = document.createTextNode('X');
+
+    item.setAttribute("class", "list-item");
+    heading.appendChild(title);
+    item.appendChild(heading);
 
     trash.appendChild(remove);
-    element.appendChild(trash);
+    item.appendChild(trash);
 
     trash.addEventListener('click', function() {
         var database = new Database();
@@ -63,6 +65,6 @@ Item.prototype.render = function() {
 
     });
 
-    return element;
+    return item;
 };
 

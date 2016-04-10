@@ -1,6 +1,8 @@
 html,
 body {
+    background-color: #772953;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
+    color: #666;
 }
 
 .main-container {
@@ -8,17 +10,20 @@ body {
 }
 
 #todo-input {
-    width: calc(100% - 36px);
-    padding: 18px;
-    font-size: 26px;
-    text-align: center;
     margin-top: 16px;
     margin-bottom: 26px;
+    width: calc(100% - 36px);
+    padding: 18px;
+    text-align: center;
+    font-size: 26px;
 }
 
 .list-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 16px 26px;
+    border: 1px solid #000;
 
 }
 

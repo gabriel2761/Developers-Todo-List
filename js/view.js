@@ -50,10 +50,11 @@ Item.prototype.render = function() {
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
 
-    item.setAttribute("class", "list-item");
+    item.setAttribute('class', 'list-item');
     heading.appendChild(title);
     item.appendChild(heading);
 
+    trash.setAttribute('class', 'trash');
     trash.appendChild(remove);
     item.appendChild(trash);
 

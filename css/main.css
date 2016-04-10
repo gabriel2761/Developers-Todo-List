@@ -31,6 +31,17 @@ body {
     background-color: #fefefe;
 }
 
+.list-item .trash {
+    margin: 0;
+    font-size: 22px;
+    color: #bbb;
+}
+
+.list-item .trash:hover {
+    color: #666;
+    cursor: pointer;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .main-container {

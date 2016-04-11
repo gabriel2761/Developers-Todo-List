@@ -33,7 +33,19 @@ body {
 }
 
 .list-item .title {
-    width: 85%;
+    width: 80%;
+}
+
+.list-item .checkbox {
+    margin-right: 16px;
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+}
+
+.list-item .checkbox:hover {
+    background-color: #aaa;
+    cursor: pointer;
 }
 
 .list-item .trash {

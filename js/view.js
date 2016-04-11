@@ -47,8 +47,13 @@ Item.prototype.render = function() {
         heading = document.createElement('h3'),
         title = document.createTextNode(this.title);
 
+    var checkbox = document.createElement('div');
+
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
+
+    checkbox.setAttribute('class', 'checkbox');
+    item.appendChild(checkbox);
 
     item.setAttribute('class', 'list-item');
     heading.appendChild(title);
@@ -61,10 +66,8 @@ Item.prototype.render = function() {
 
     trash.addEventListener('click', function() {
         var database = new Database();
-
         database.removeItem(self.id);
         self.listview.update();
-
     });
 
     return item;

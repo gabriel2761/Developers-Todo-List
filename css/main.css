@@ -10,6 +10,7 @@ body {
 }
 
 .main-container {
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -31,6 +32,10 @@ body {
     background-color: #fefefe;
 }
 
+.list-item .title {
+    width: 85%;
+}
+
 .list-item .trash {
     margin: 0;
     font-size: 22px;
@@ -43,9 +48,9 @@ body {
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 708px) {
     .main-container {
-        width: 750px;
+        width: 700px;
     }
 }
 

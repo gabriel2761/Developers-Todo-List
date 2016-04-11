@@ -52,6 +52,7 @@ Item.prototype.render = function() {
 
     item.setAttribute('class', 'list-item');
     heading.appendChild(title);
+    heading.setAttribute('class', 'title');
     item.appendChild(heading);
 
     trash.setAttribute('class', 'trash');

@@ -53,9 +53,14 @@ Item.prototype.render = function() {
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
 
+
     droparea.setAttribute('class', 'droparea');
     droparea.setAttribute('ondragover', 'allowDrop(event)');
     droparea.setAttribute('ondrop', 'drop(event)');
+    // TODO: Find a better way, to get the droparea
+    // without getting data from the view
+    droparea.setAttribute('id', self.id);
+
     item.appendChild(droparea);
 
     checkbox.setAttribute('class', 'checkbox');

@@ -56,6 +56,7 @@ Item.prototype.render = function() {
     item.appendChild(checkbox);
 
     item.setAttribute('class', 'list-item');
+    item.setAttribute('draggable', 'true');
     heading.appendChild(title);
     heading.setAttribute('class', 'title');
     item.appendChild(heading);

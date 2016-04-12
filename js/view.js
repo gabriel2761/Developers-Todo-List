@@ -47,10 +47,16 @@ Item.prototype.render = function() {
         heading = document.createElement('h3'),
         title = document.createTextNode(this.title);
 
+    var droparea = document.createElement('div');
     var checkbox = document.createElement('div');
 
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
+
+    droparea.setAttribute('class', 'droparea');
+    droparea.setAttribute('ondragover', 'allowDrop(event)');
+    droparea.setAttribute('ondrop', 'drop(event)');
+    item.appendChild(droparea);
 
     checkbox.setAttribute('class', 'checkbox');
     item.appendChild(checkbox);

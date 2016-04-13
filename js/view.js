@@ -53,11 +53,37 @@ Item.prototype.render = function() {
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
 
+
+    droparea.ondragover = function(event) {
+        event.preventDefault();
+    };
+
+    droparea.ondrop = function(event) {
+        // TODO: Find a better way to get id,
+        // without having to store data on the DOM
+        var database = new Database(),
+            dropId = event.srcElement.attributes.id.value,
+            draggedItemInfo = JSON.parse(event.dataTransfer.getData('itemInfo'));
+
+        database.insertItemBefore(draggedItemInfo, dropId);
+        listView.update();
+    };
+
+    item.ondragstart = function(event) {
+        var id = event.srcElement.attributes.id.value,
+        title = event.srcElement.children[2].innerHTML;
+
+        var draggedItemInfo = {
+            id: id,
+            title: title
+        };
+
+        event.dataTransfer.setData('itemInfo', JSON.stringify(draggedItemInfo));
+    };
+
     // TODO: Add a drop area for the first position
 
     droparea.setAttribute('class', 'droparea');
-    droparea.setAttribute('ondragover', 'allowDrop(event)');
-    droparea.setAttribute('ondrop', 'drop(event)');
     // TODO: Find a better way, to get the droparea
     // without getting data from the view
     droparea.setAttribute('id', self.id);
@@ -70,7 +96,6 @@ Item.prototype.render = function() {
     item.setAttribute('class', 'list-item');
     item.setAttribute('id', self.id);
     item.setAttribute('draggable', 'true');
-    item.setAttribute('ondragstart', 'drag(event)');
     heading.appendChild(title);
     heading.setAttribute('class', 'title');
     item.appendChild(heading);

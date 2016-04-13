@@ -53,6 +53,7 @@ Item.prototype.render = function() {
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
 
+    // TODO: Add a drop area for the first position
 
     droparea.setAttribute('class', 'droparea');
     droparea.setAttribute('ondragover', 'allowDrop(event)');
@@ -67,7 +68,9 @@ Item.prototype.render = function() {
     item.appendChild(checkbox);
 
     item.setAttribute('class', 'list-item');
+    item.setAttribute('id', self.id);
     item.setAttribute('draggable', 'true');
+    item.setAttribute('ondragstart', 'drag(event)');
     heading.appendChild(title);
     heading.setAttribute('class', 'title');
     item.appendChild(heading);

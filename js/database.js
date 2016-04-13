@@ -36,3 +36,25 @@ Database.prototype.removeItem = function(id) {
     });
     localStorage.setItem(this.KEY, JSON.stringify(items));
 };
+
+Database.prototype.insertItemBefore = function(draggedItemInfo, dropId) {
+    var items = JSON.parse(localStorage.getItem(this.KEY)),
+        dropPosition = 0,
+        initialPostition = 0;
+
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].id === dropId) dropPosition = i;
+        if (items[i].id === draggedItemInfo.id) initialPostition = i;
+    }
+
+    if (initialPostition < dropPosition) {
+        items.splice(initialPostition, 1);
+        items.splice(dropPosition - 1, 0, draggedItemInfo);
+    } else if (initialPostition > dropPosition) {
+        items.splice(initialPostition, 1);
+        items.splice(dropPosition, 0, draggedItemInfo);
+    }
+
+
+    localStorage.setItem(this.KEY, JSON.stringify(items));
+};

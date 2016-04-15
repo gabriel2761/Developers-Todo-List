@@ -11,26 +11,10 @@ Item.prototype.render = function() {
         heading = document.createElement('h3'),
         title = document.createTextNode(this.title);
 
-    var droparea = document.createElement('div');
     var checkbox = document.createElement('div');
 
     var trash = document.createElement('p'),
         remove = document.createTextNode('X');
-
-
-    droparea.ondragover = function(event) {
-        event.preventDefault();
-    };
-
-    droparea.ondrop = function(event) {
-        var database = new Database(),
-            dropId = self.id,
-            draggedItemInfo =
-                    JSON.parse(event.dataTransfer.getData('itemInfo'));
-
-        database.insertItemBefore(draggedItemInfo, dropId);
-        listView.update();
-    };
 
     item.ondragstart = function(event) {
 
@@ -43,12 +27,7 @@ Item.prototype.render = function() {
                 JSON.stringify(draggedItemInfo));
     };
 
-    // TODO: Add a drop area for the first position
-
-    droparea.setAttribute('class', 'droparea');
-    droparea.id = self.id;
-
-    item.appendChild(droparea);
+    item.appendChild(new DropArea(this.id));
 
     checkbox.setAttribute('class', 'checkbox');
     item.appendChild(checkbox);
@@ -74,4 +53,25 @@ Item.prototype.render = function() {
     });
 
     return item;
+};
+
+var DropArea = function(id) {
+    this.droparea = document.createElement('div');
+
+    this.droparea.ondragover = function(event) {
+        event.preventDefault();
+    };
+
+    this.droparea.ondrop = function(event) {
+        var database = new Database(),
+            draggedItemInfo =
+                    JSON.parse(event.dataTransfer.getData('itemInfo'));
+
+        database.insertItemBefore(draggedItemInfo, id);
+        listView.update();
+    };
+
+    this.droparea.setAttribute('class', 'droparea');
+
+    return this.droparea;
 };

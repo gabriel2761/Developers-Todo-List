@@ -7,5 +7,5 @@ HotKeys.prototype.newList = function() {
 };
 
 HotKeys.prototype.toggleNavigationBar = function() {
-    $('#navigation-bar').toggleClass('hidden');
+    this.navigationBar.toggleView();
 };

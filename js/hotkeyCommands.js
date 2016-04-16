@@ -1,5 +1,6 @@
 var HotKeys = function() {
     this.newListInput = new NewListInput();
+    this.navigationBar = new NavigationBar();
     this.key = {
         'l': 76,
         't': 84,
@@ -36,6 +37,7 @@ HotKeys.prototype.initialize = function() {
 
 HotKeys.prototype.render = function() {
     this.newListInput.render();
+    this.navigationBar.render();
 };
 
 

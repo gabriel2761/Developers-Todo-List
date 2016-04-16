@@ -1,6 +1,7 @@
 var key = {
     'l': 76,
-    't': 84
+    't': 84,
+    'i': 73
 };
 
 /**
@@ -21,8 +22,14 @@ $(document).keyup(function(event) {
             break;
         case key.t: newList();
             break;
+        case key.i: toggleListInfo();
+            break;
     }
 });
+
+function toggleListInfo() {
+    $('#listinfo').toggleClass('hidden');
+}
 
 function newList() {
 

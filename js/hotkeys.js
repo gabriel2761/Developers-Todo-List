@@ -1,11 +1,17 @@
+var keys = {
+    'l': 76
+};
+
 /**
  * Single key presses
  */
 $(document).keyup(function(event) {
-    var key = event.keyCode;
+    console.log(event.keyCode);
 
-    console.log(key);
-
+    switch (event.keyCode) {
+        case keys.l: toggleNavigationBar();
+            break;
+    }
 });
 
 
@@ -16,3 +22,7 @@ $(document).keyup(function(event) {
     if (!event.ctrlKey) return;
 
 });
+
+function toggleNavigationBar() {
+     $('#navigation-bar').toggleClass('hidden');
+}

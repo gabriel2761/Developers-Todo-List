@@ -3,18 +3,7 @@ function toggleListInfo() {
 }
 
 function newList() {
-    var input = new NewTabInput();
-    $('body').append(input);
-
-    input.keyup(function(event) {
-        if (event.keyCode !== 13 || value === '') return;
-
-        var value = input.val();
-        var database = new Database();
-        database.createList(value);
-
-        this.remove();
-    });
+    input.toggleClass('hidden');
 }
 
 function toggleNavigationBar() {

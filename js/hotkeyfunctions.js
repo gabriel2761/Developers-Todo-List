@@ -3,7 +3,7 @@ function toggleListInfo() {
 }
 
 function newList() {
-    input.toggleClass('hidden');
+    $('#newlist-input').toggleClass('hidden');
 }
 
 function toggleNavigationBar() {

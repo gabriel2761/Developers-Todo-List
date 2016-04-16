@@ -32,7 +32,20 @@ body {
     top: 0;
     height: 38px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
     background-color: #512DA8;
+
+    &::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .navigation-tab {
+        flex: 0 0 80px;
+        text-align: center;
+    }
 }
 
 #listinfo {

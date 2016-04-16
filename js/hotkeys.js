@@ -1,4 +1,4 @@
-var keys = {
+var key = {
     'l': 76
 };
 
@@ -9,7 +9,7 @@ $(document).keyup(function(event) {
     console.log(event.keyCode);
 
     switch (event.keyCode) {
-        case keys.l: toggleNavigationBar();
+        case key.l: toggleNavigationBar();
             break;
     }
 });

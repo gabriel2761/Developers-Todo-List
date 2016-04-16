@@ -2,9 +2,27 @@ html,
 body {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     background-color: #E9EAEA;
+    color: #666;
 
     .hidden {
         display: none;
+    }
+}
+
+.newlist-container {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 0;
+
+    #newlist-input {
+        display: inline-block;
+        padding: 18px;
+        text-align: center;
+        font-size: 26px;
+        color: #666;
     }
 }
 
@@ -24,3 +42,5 @@ body {
     width: 100px;
     background-color: #fff;
 }
+
+

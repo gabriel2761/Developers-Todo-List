@@ -5,4 +5,6 @@ input.keyup(function(event) {
 
     var database = new Database();
     database.createList(value);
+
+    input.addClass('hidden');
 });

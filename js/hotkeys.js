@@ -8,13 +8,6 @@ var key = {
  */
 $(document).keyup(function(event) {
     console.log(event.keyCode);
-
-    switch (event.keyCode) {
-        case key.l: toggleNavigationBar();
-            break;
-        case key.t: newList();
-            break;
-    }
 });
 
 
@@ -23,7 +16,12 @@ $(document).keyup(function(event) {
  */
 $(document).keyup(function(event) {
     if (!event.ctrlKey) return;
-
+    switch (event.keyCode) {
+        case key.l: toggleNavigationBar();
+            break;
+        case key.t: newList();
+            break;
+    }
 });
 
 function newList() {

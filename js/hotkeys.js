@@ -1,5 +1,6 @@
 var key = {
-    'l': 76
+    'l': 76,
+    't': 84
 };
 
 /**
@@ -10,6 +11,8 @@ $(document).keyup(function(event) {
 
     switch (event.keyCode) {
         case key.l: toggleNavigationBar();
+            break;
+        case key.t: newList();
             break;
     }
 });
@@ -22,6 +25,10 @@ $(document).keyup(function(event) {
     if (!event.ctrlKey) return;
 
 });
+
+function newList() {
+
+}
 
 function toggleNavigationBar() {
      $('#navigation-bar').toggleClass('hidden');

@@ -3,7 +3,10 @@ function toggleListInfo() {
 }
 
 function newList() {
-    $('#newlist-input').toggleClass('hidden');
+    var input = $('#newlist-input');
+    input.val('');
+    input.toggleClass('hidden');
+    input.focus();
 }
 
 function toggleNavigationBar() {

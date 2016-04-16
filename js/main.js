@@ -8,3 +8,7 @@ input.keyup(function(event) {
 
     input.addClass('hidden');
 });
+
+input.focusout(function() {
+    input.addClass('hidden');
+});

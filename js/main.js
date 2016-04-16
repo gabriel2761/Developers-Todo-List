@@ -1,14 +1,4 @@
-var input = $('#newlist-input');
-input.keyup(function(event) {
-    var value = input.val();
-    if (event.keyCode !== 13 || value === '') return;
+var hotkeys = new HotKeys();
 
-    var database = new Database();
-    database.createList(value);
-
-    input.addClass('hidden');
-});
-
-input.focusout(function() {
-    input.addClass('hidden');
-});
+hotkeys.initialize();
+hotkeys.render();

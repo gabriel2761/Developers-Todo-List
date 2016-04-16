@@ -1,14 +1,11 @@
-function toggleListInfo() {
+HotKeys.prototype.toggleListInfo = function() {
     $('#listinfo').toggleClass('hidden');
-}
+};
 
-function newList() {
-    var input = $('#newlist-input');
-    input.val('');
-    input.toggleClass('hidden');
-    input.focus();
-}
+HotKeys.prototype.newList = function() {
+    this.newListInput.create();
+};
 
-function toggleNavigationBar() {
-     $('#navigation-bar').toggleClass('hidden');
-}
+HotKeys.prototype.toggleNavigationBar = function() {
+    $('#navigation-bar').toggleClass('hidden');
+};

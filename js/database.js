@@ -9,10 +9,10 @@ Database.prototype.getLists = function() {
     return this.lists;
 };
 
-Database.prototype.createList = function(title) {
+Database.prototype.createList = function(label) {
     this.lists.push({
         key: Math.random().toString(36).substring(2),
-        title: title
+        label: label
     });
     this.setList();
 };

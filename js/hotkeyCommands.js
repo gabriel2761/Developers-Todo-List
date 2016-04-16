@@ -4,7 +4,8 @@ var HotKeys = function() {
     this.key = {
         'l': 76,
         't': 84,
-        'i': 73
+        'i': 73,
+        'r': 82
     };
 };
 
@@ -13,7 +14,7 @@ HotKeys.prototype.initialize = function() {
 
     // Single key press
     $(document).keyup(function(event) {
-
+        console.log(event.keyCode);
     });
 
     // Ctrl key press
@@ -31,13 +32,16 @@ HotKeys.prototype.initialize = function() {
             case key.i:
                 self.toggleListInfo();
                 break;
+            case key.r:
+                self.navigationBar.render();
+                break;
         }
     });
 };
 
 HotKeys.prototype.render = function() {
-    this.newListInput.render();
     this.navigationBar.render();
+    this.newListInput.render(this.navigationBar);
 };
 
 

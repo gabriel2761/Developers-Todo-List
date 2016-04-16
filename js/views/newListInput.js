@@ -1,6 +1,5 @@
 var NewListInput = function() {
     this.element = $('<input id="newlist-input" class="hidden">');
-    this.database = new Database();
 };
 
 NewListInput.prototype.create = function() {
@@ -9,14 +8,17 @@ NewListInput.prototype.create = function() {
     this.element.focus();
 };
 
-NewListInput.prototype.render = function() {
+NewListInput.prototype.render = function(navigationBar) {
     var self = this;
     self.element.keyup(function(event) {
-        var value = self.input.val();
+        var value = self.element.val();
         if (event.keyCode !== 13 || value === '') return;
 
-        self.database.createList(value);
+        var database = new Database();
+        database.createList(value);
         self.element.addClass('hidden');
+
+        navigationBar.render();
     });
 
     self.element.focusout(function() {

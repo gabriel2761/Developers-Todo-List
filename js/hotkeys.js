@@ -8,7 +8,7 @@ var key = {
  * Single key presses
  */
 $(document).keyup(function(event) {
-    console.log(event.keyCode);
+
 });
 
 
@@ -26,15 +26,3 @@ $(document).keyup(function(event) {
             break;
     }
 });
-
-function toggleListInfo() {
-    $('#listinfo').toggleClass('hidden');
-}
-
-function newList() {
-
-}
-
-function toggleNavigationBar() {
-     $('#navigation-bar').toggleClass('hidden');
-}

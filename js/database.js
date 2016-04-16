@@ -5,6 +5,10 @@ var Database = function() {
     this.lists = JSON.parse(localStorage.getItem(this.KEY));
 };
 
+Database.prototype.getLists = function() {
+    return this.lists;
+};
+
 Database.prototype.createList = function(title) {
     this.lists.push({
         key: Math.random().toString(36).substring(2),
@@ -14,5 +18,5 @@ Database.prototype.createList = function(title) {
 };
 
 Database.prototype.setList = function() {
-    localStorage.setItem(this.KEY, JSON.stringify(this.list));
+    localStorage.setItem(this.KEY, JSON.stringify(this.lists));
 };

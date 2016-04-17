@@ -9,5 +9,6 @@ ListView.prototype.toggleInfoView = function() {
 };
 
 ListView.prototype.render = function() {
-
+    this.listinfo.empty();
+    this.listinfo.append(this.label);
 };

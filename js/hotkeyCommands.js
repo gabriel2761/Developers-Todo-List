@@ -57,6 +57,7 @@ HotKeys.prototype.render = function() {
     this.navigationBar.render();
     this.newListInput.render(this.navigationBar);
     this.listview = this.navigationBar.renderList();
+    this.listview.render();
 };
 
 

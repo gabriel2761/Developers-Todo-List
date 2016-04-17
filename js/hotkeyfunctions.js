@@ -3,9 +3,7 @@ HotKeys.prototype.toggleListInfo = function() {
 };
 
 HotKeys.prototype.newList = function() {
-    this.newListInput.create();
-    this.listview = this.navigationBar.renderList();
-    this.listview.render();
+    this.newListInput.showInput();
 };
 
 HotKeys.prototype.toggleNavigationBar = function() {

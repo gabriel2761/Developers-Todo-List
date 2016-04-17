@@ -3,7 +3,7 @@ var NewListInput = function() {
     this.database = new Database();
 };
 
-NewListInput.prototype.attach = function(callback) {
+NewListInput.prototype.createList = function(callback) {
     var self = this;
     self.element.keyup(function(event) {
         var value = self.element.val();
@@ -21,7 +21,7 @@ NewListInput.prototype.attach = function(callback) {
 
 };
 
-NewListInput.prototype.create = function() {
+NewListInput.prototype.showInput = function() {
     this.element.val('');
     this.element.toggleClass('hidden');
     this.element.focus();

@@ -75,9 +75,12 @@ HotKeys.prototype.createCtrlShiftKeyListeners = function(first_argument) {
 
 HotKeys.prototype.attachViews = function() {
     var self = this;
-    this.newListInput.attach(function(listCreated) {
+    this.newListInput.createList(function(listCreated) {
         if (listCreated) {
             self.navigationBar.render();
+            self.navigationBar.moveLast();
+            self.listview = self.navigationBar.renderList();
+            self.listview.render();
         }
     });
 };

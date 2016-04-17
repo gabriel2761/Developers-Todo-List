@@ -1,11 +1,17 @@
+var hotkey = hotkey || {};
+
+hotkey.TOGGLE_NAV = 86;
+hotkey.NEW_LIST = 84;
+hotkey.TOGGLE_INFOBAR = 73;
+
+
 var HotKeys = function() {
     this.newListInput = new NewListInput();
     this.navigationBar = new NavigationBar();
     this.key = {
-        'l': 76,
-        't': 84,
-        'i': 73,
-        'r': 82
+        'v': hotkey.TOGGLE_NAV,
+        't': hotkey.NEW_LIST,
+        'i': hotkey.TOGGLE_INFOBAR,
     };
 };
 
@@ -22,8 +28,9 @@ HotKeys.prototype.initialize = function() {
         if (!event.ctrlKey) return;
 
         var key = self.key;
+
         switch (event.keyCode) {
-            case key.l:
+            case key.v:
                 self.toggleNavigationBar();
                 break;
             case key.t:
@@ -31,9 +38,6 @@ HotKeys.prototype.initialize = function() {
                 break;
             case key.i:
                 self.toggleListInfo();
-                break;
-            case key.r:
-                self.navigationBar.render();
                 break;
         }
     });

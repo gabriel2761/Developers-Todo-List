@@ -25,6 +25,8 @@ HotKeys.prototype.initialize = function() {
     this.createSingleKeyListeners();
     this.createCtrlKeyListeners();
     this.createCtrlShiftKeyListeners();
+
+    this.attachViews();
 };
 
 HotKeys.prototype.createSingleKeyListeners = function() {
@@ -72,7 +74,12 @@ HotKeys.prototype.createCtrlShiftKeyListeners = function(first_argument) {
 };
 
 HotKeys.prototype.attachViews = function() {
-
+    var self = this;
+    this.newListInput.attach(function(listCreated) {
+        if (listCreated) {
+            self.navigationBar.render();
+        }
+    });
 };
 
 HotKeys.prototype.render = function() {
@@ -81,5 +88,6 @@ HotKeys.prototype.render = function() {
     this.listview = this.navigationBar.renderList();
     this.listview.render();
 };
+
 
 

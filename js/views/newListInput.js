@@ -3,7 +3,8 @@ var NewListInput = function() {
     this.database = new Database();
 };
 
-NewListInput.prototype.attachViews = function(callback) {
+NewListInput.prototype.attach = function(callback) {
+    var self = this;
     self.element.keyup(function(event) {
         var value = self.element.val();
         if (event.keyCode !== 13 || value === '') return;
@@ -12,16 +13,12 @@ NewListInput.prototype.attachViews = function(callback) {
         self.element.addClass('hidden');
 
         callback(true);
-        // navigationBar.moveLast();
-        // navigationBar.render();
-        return;
     });
 
     self.element.focusout(function() {
         self.element.addClass('hidden');
     });
 
-    callback(false);
 };
 
 NewListInput.prototype.create = function() {

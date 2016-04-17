@@ -1,5 +1,7 @@
 var NavigationBar = function() {
     this.element = $('#navigation-bar');
+    this.tabs = [];
+    this.database = new Database();
 };
 
 NavigationBar.prototype.toggleView = function() {
@@ -10,9 +12,7 @@ NavigationBar.prototype.render = function() {
     var self = this;
     self.element.empty();
 
-    var database = new Database();
-    database.getLists().forEach(function(list) {
-        console.log(list.label);
+    self.database.getLists().forEach(function(list) {
         self.element.append(self.createTab(list.label));
     });
 };

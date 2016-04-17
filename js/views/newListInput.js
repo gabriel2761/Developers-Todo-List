@@ -1,5 +1,6 @@
 var NewListInput = function() {
     this.element = $('<input id="newlist-input" class="hidden">');
+    this.database = new Database();
 };
 
 NewListInput.prototype.create = function() {
@@ -14,8 +15,7 @@ NewListInput.prototype.render = function(navigationBar) {
         var value = self.element.val();
         if (event.keyCode !== 13 || value === '') return;
 
-        var database = new Database();
-        database.createList(value);
+        self.database.createList(value);
         self.element.addClass('hidden');
 
         navigationBar.render();

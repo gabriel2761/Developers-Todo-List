@@ -16,3 +16,11 @@ Database.prototype.createList = function(label) {
     });
     localStorage.setItem(this.KEY, JSON.stringify(lists));
 };
+
+Database.prototype.removeList = function(key) {
+    var lists = JSON.parse(localStorage.getItem(this.KEY));
+    lists.forEach(function(list) {
+        if (list.key === key) lists.splice(lists.indexOf(list), 1);
+    });
+    localStorage.setItem(this.KEY, JSON.stringify(lists));
+};

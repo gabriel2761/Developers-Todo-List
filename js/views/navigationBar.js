@@ -29,6 +29,10 @@ NavigationBar.prototype.renderList = function() {
     return new ListView(data.key, data.label);
 };
 
+NavigationBar.prototype.moveLast = function() {
+    this.index = (this.lists.length - 1);
+};
+
 NavigationBar.prototype.moveLeft = function() {
     if (this.index === 0) this.index = this.lists.length;
     this.index--;

@@ -5,6 +5,7 @@ hotkey.NEW_LIST = 84;
 hotkey.TOGGLE_INFOBAR = 73;
 hotkey.NAVBAR_LEFT = 72;
 hotkey.NAVBAR_RIGHT = 76;
+hotkey.DELETE_LIST = 68;
 
 var HotKeys = function() {
     this.newListInput = new NewListInput();
@@ -15,24 +16,28 @@ var HotKeys = function() {
         't': hotkey.NEW_LIST,
         'i': hotkey.TOGGLE_INFOBAR,
         'h': hotkey.NAVBAR_LEFT,
-        'l': hotkey.NAVBAR_RIGHT
+        'l': hotkey.NAVBAR_RIGHT,
+        'd': hotkey.DELETE_LIST
     };
 };
 
 HotKeys.prototype.initialize = function() {
-    var self = this;
+    this.createSingleKeyListeners();
+    this.createCtrlKeyListeners();
+    this.createCtrlShiftKeyListeners();
+};
 
-    // Single key press
+HotKeys.prototype.createSingleKeyListeners = function() {
     $(document).keyup(function(event) {
         console.log(event.keyCode);
     });
+};
 
-    // Ctrl key press
+HotKeys.prototype.createCtrlKeyListeners = function() {
+    var self = this;
+    var key = self.key;
     $(document).keyup(function(event) {
         if (!event.ctrlKey) return;
-
-        var key = self.key;
-
         switch (event.keyCode) {
             case key.v:
                 self.toggleNavigationBar();
@@ -53,9 +58,26 @@ HotKeys.prototype.initialize = function() {
     });
 };
 
+HotKeys.prototype.createCtrlShiftKeyListeners = function(first_argument) {
+    var self = this;
+    var key = self.key;
+    $(document).keyup(function(event) {
+        if (!event.ctrlKey && !event.shiftKey) return;
+        switch (event.keyCode) {
+            case key.d:
+                self.removeList();
+                break;
+        }
+    });
+};
+
+HotKeys.prototype.attachViews = function() {
+
+};
+
 HotKeys.prototype.render = function() {
     this.navigationBar.render();
-    this.newListInput.render(this.navigationBar);
+    this.newListInput.render();
     this.listview = this.navigationBar.renderList();
     this.listview.render();
 };

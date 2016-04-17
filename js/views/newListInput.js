@@ -3,14 +3,7 @@ var NewListInput = function() {
     this.database = new Database();
 };
 
-NewListInput.prototype.create = function() {
-    this.element.val('');
-    this.element.toggleClass('hidden');
-    this.element.focus();
-};
-
-NewListInput.prototype.render = function(navigationBar) {
-    var self = this;
+NewListInput.prototype.attachViews = function(callback) {
     self.element.keyup(function(event) {
         var value = self.element.val();
         if (event.keyCode !== 13 || value === '') return;
@@ -18,12 +11,26 @@ NewListInput.prototype.render = function(navigationBar) {
         self.database.createList(value);
         self.element.addClass('hidden');
 
-        navigationBar.render();
+        callback(true);
+        // navigationBar.moveLast();
+        // navigationBar.render();
+        return;
     });
 
     self.element.focusout(function() {
         self.element.addClass('hidden');
     });
 
+    callback(false);
+};
+
+NewListInput.prototype.create = function() {
+    this.element.val('');
+    this.element.toggleClass('hidden');
+    this.element.focus();
+};
+
+NewListInput.prototype.render = function() {
+    var self = this;
     $('#newlist-container').append(self.element);
 };

@@ -4,6 +4,8 @@ HotKeys.prototype.toggleListInfo = function() {
 
 HotKeys.prototype.newList = function() {
     this.newListInput.create();
+    this.listview = this.navigationBar.renderList();
+    this.listview.render();
 };
 
 HotKeys.prototype.toggleNavigationBar = function() {
@@ -20,6 +22,14 @@ HotKeys.prototype.navbarRight = function() {
     this.navigationBar.moveRight();
     this.listview = this.navigationBar.renderList();
     this.listview.render();
+};
+
+HotKeys.prototype.removeList = function() {
+    this.listview.remove();
+    this.navigationBar.moveLeft();
+    this.listview = this.navigationBar.renderList();
+    this.listview.render();
+    this.navigationBar.render();
 };
 
 HotKeys.prototype.showList = function() {

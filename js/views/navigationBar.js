@@ -13,6 +13,7 @@ NavigationBar.prototype.render = function() {
     self.element.empty();
 
     self.database.getLists().forEach(function(list) {
+        self.tabs.push(list);
         self.element.append(self.createTab(list.label));
     });
 };
@@ -20,4 +21,10 @@ NavigationBar.prototype.render = function() {
 NavigationBar.prototype.createTab = function(label) {
     var tab = $('<div class="navigation-tab"><p>' + label + '</p></div>');
     return tab;
+};
+
+NavigationBar.prototype.moveLeft = function() {
+};
+
+NavigationBar.prototype.moveRight = function() {
 };

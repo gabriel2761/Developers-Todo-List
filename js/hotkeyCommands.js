@@ -3,7 +3,8 @@ var hotkey = hotkey || {};
 hotkey.TOGGLE_NAV = 86;
 hotkey.NEW_LIST = 84;
 hotkey.TOGGLE_INFOBAR = 73;
-
+hotkey.NAVBAR_LEFT = 72;
+hotkey.NAVBAR_RIGHT = 76;
 
 var HotKeys = function() {
     this.newListInput = new NewListInput();
@@ -12,6 +13,8 @@ var HotKeys = function() {
         'v': hotkey.TOGGLE_NAV,
         't': hotkey.NEW_LIST,
         'i': hotkey.TOGGLE_INFOBAR,
+        'h': hotkey.NAVBAR_LEFT,
+        'l': hotkey.NAVBAR_RIGHT
     };
 };
 
@@ -38,6 +41,12 @@ HotKeys.prototype.initialize = function() {
                 break;
             case key.i:
                 self.toggleListInfo();
+                break;
+            case key.h:
+                self.navbarLeft();
+                break;
+            case key.l:
+                self.navbarRight();
                 break;
         }
     });

@@ -9,3 +9,11 @@ HotKeys.prototype.newList = function() {
 HotKeys.prototype.toggleNavigationBar = function() {
     this.navigationBar.toggleView();
 };
+
+HotKeys.prototype.navbarLeft = function() {
+    this.navigationBar.moveLeft();
+};
+
+HotKeys.prototype.navbarRight = function() {
+    this.navigationBar.moveRight();
+};

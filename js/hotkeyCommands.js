@@ -9,6 +9,7 @@ hotkey.NAVBAR_RIGHT = 76;
 var HotKeys = function() {
     this.newListInput = new NewListInput();
     this.navigationBar = new NavigationBar();
+    this.listview = null;
     this.key = {
         'v': hotkey.TOGGLE_NAV,
         't': hotkey.NEW_LIST,
@@ -55,6 +56,7 @@ HotKeys.prototype.initialize = function() {
 HotKeys.prototype.render = function() {
     this.navigationBar.render();
     this.newListInput.render(this.navigationBar);
+    this.listview = this.navigationBar.renderList();
 };
 
 

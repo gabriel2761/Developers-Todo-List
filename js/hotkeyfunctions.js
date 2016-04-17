@@ -1,5 +1,5 @@
 HotKeys.prototype.toggleListInfo = function() {
-    $('#listinfo').toggleClass('hidden');
+    this.listview.toggleInfoView();
 };
 
 HotKeys.prototype.newList = function() {
@@ -16,4 +16,8 @@ HotKeys.prototype.navbarLeft = function() {
 
 HotKeys.prototype.navbarRight = function() {
     this.navigationBar.moveRight();
+};
+
+HotKeys.prototype.showList = function() {
+
 };

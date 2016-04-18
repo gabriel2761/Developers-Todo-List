@@ -6,6 +6,8 @@ hotkey.TOGGLE_INFOBAR = 73;
 hotkey.NAVBAR_LEFT = 72;
 hotkey.NAVBAR_RIGHT = 76;
 hotkey.DELETE_LIST = 68;
+hotkey.CREATE_TODO_ITEM = 191;
+hotkey.CREATE_TODO_ITEM2 = 78;
 
 var HotKeys = function() {
     this.newListInput = new NewListInput();
@@ -17,7 +19,9 @@ var HotKeys = function() {
         'i': hotkey.TOGGLE_INFOBAR,
         'h': hotkey.NAVBAR_LEFT,
         'l': hotkey.NAVBAR_RIGHT,
-        'd': hotkey.DELETE_LIST
+        'd': hotkey.DELETE_LIST,
+        'fslash': hotkey.CREATE_TODO_ITEM,
+        'n': hotkey.CREATE_TODO_ITEM2
     };
 };
 
@@ -30,7 +34,14 @@ HotKeys.prototype.initialize = function() {
 };
 
 HotKeys.prototype.createSingleKeyListeners = function() {
+    var self = this;
+    var key = self.key;
     $(document).keyup(function(event) {
+        switch(event.keyCode) {
+            case key.fslash:
+                self.createTodoItem();
+                break;
+        }
         console.log(event.keyCode);
     });
 };
@@ -55,6 +66,9 @@ HotKeys.prototype.createCtrlKeyListeners = function() {
                 break;
             case key.l:
                 self.navbarRight();
+                break;
+            case key.n:
+                self.createTodoItem();
                 break;
         }
     });

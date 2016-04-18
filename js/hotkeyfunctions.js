@@ -30,6 +30,10 @@ HotKeys.prototype.removeList = function() {
     this.navigationBar.render();
 };
 
+HotKeys.prototype.createTodoItem = function() {
+    this.listview.createTodoItem();
+};
+
 HotKeys.prototype.showList = function() {
 
 };

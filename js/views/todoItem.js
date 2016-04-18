@@ -1,6 +1,7 @@
 var hotkey = hotkey || {};
 
 var TodoItem = function() {
+    this.database = new Database();
     var item = $('<section class="list-item"></section>');
     var input = $('<input class="item-input">');
     item.append(input);
@@ -8,7 +9,7 @@ var TodoItem = function() {
     this.item = item;
 };
 
-TodoItem.prototype.make = function() {
+TodoItem.prototype.make = function(values) {
     var self = this;
     self.input.focus();
     self.input.keyup(function(event) {
@@ -23,6 +24,10 @@ TodoItem.prototype.make = function() {
 
         self.item.append(heading);
         self.input.remove();
+
+        values({
+            title: value
+        });
     });
 
     self.input.focusout(function() {

@@ -12,7 +12,8 @@ Database.prototype.createList = function(label) {
     var lists = JSON.parse(localStorage.getItem(this.KEY));
     lists.push({
         key: Math.random().toString(36).substring(2),
-        label: label
+        label: label,
+        todos: []
     });
     localStorage.setItem(this.KEY, JSON.stringify(lists));
 };
@@ -21,6 +22,18 @@ Database.prototype.removeList = function(key) {
     var lists = JSON.parse(localStorage.getItem(this.KEY));
     lists.forEach(function(list) {
         if (list.key === key) lists.splice(lists.indexOf(list), 1);
+    });
+    localStorage.setItem(this.KEY, JSON.stringify(lists));
+};
+
+Database.prototype.addTodo = function(key, values) {
+    var lists = JSON.parse(localStorage.getItem(this.KEY));
+    lists.forEach(function(list) {
+        if (list.key === key) {
+            list.todos.push({
+                title: values.label
+            });
+        }
     });
     localStorage.setItem(this.KEY, JSON.stringify(lists));
 };

@@ -1,5 +1,6 @@
 var hotkey = hotkey || {};
 
+hotkey.ENTER = 13;
 hotkey.TOGGLE_NAV = 86;
 hotkey.NEW_LIST = 84;
 hotkey.TOGGLE_INFOBAR = 73;

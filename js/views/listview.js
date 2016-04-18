@@ -7,8 +7,9 @@ var ListView = function(key, label) {
 };
 
 ListView.prototype.createTodoItem = function() {
-    var item = $('<section class="list-item"></section>');
-    this.listview.prepend(item);
+    var item = new TodoItem();
+    this.listview.prepend(item.render());
+    item.make();
 };
 
 ListView.prototype.toggleInfoView = function() {

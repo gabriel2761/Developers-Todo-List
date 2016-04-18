@@ -1,16 +1,19 @@
-var ListView = function(key, label) {
+var ListView = function(key, label, items) {
     this.key = key;
     this.label = label;
+    this.items = items;
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();
 };
 
 ListView.prototype.createTodoItem = function() {
+    var self = this;
     var item = new TodoItem();
-    this.listview.prepend(item.render());
+    self.listview.prepend(item.render());
     item.make(function(values) {
-
+        if (values === null) return;
+        self.database.addTodo(self.key, values);
     });
 };
 
@@ -19,8 +22,13 @@ ListView.prototype.toggleInfoView = function() {
 };
 
 ListView.prototype.render = function() {
-    this.listinfo.empty();
-    this.listinfo.append(this.label);
+    var self = this;
+    self.listinfo.empty();
+    self.listinfo.append(this.label);
+    self.items.forEach(function(values) {
+        var todo = new TodoItem();
+        self.listview.append(todo.create(values));
+    });
 };
 
 ListView.prototype.remove = function() {

@@ -26,7 +26,7 @@ NavigationBar.prototype.createTab = function(label) {
 
 NavigationBar.prototype.renderList = function() {
     var data = this.lists[this.index];
-    return new ListView(data.key, data.label);
+    return new ListView(data.key, data.label, data.todos);
 };
 
 NavigationBar.prototype.moveLast = function() {

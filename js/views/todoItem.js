@@ -9,6 +9,12 @@ var TodoItem = function() {
     this.item = item;
 };
 
+TodoItem.prototype.create = function(values) {
+    var heading = $('<h3 class="todo-heading">' + values.title + '</h3>');
+    this.item.append(heading);
+    return this.item;
+};
+
 TodoItem.prototype.make = function(values) {
     var self = this;
     self.input.focus();

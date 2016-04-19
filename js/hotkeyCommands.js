@@ -108,6 +108,7 @@ HotKeys.prototype.attachViews = function() {
     var self = this;
     this.newListInput.createList(function(listCreated) {
         if (listCreated) {
+            self.listview.clear();
             self.navigationBar.render();
             self.navigationBar.moveLast();
             self.listview = self.navigationBar.renderList();

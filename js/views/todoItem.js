@@ -2,11 +2,7 @@ var hotkey = hotkey || {};
 
 var TodoItem = function() {
     this.database = new Database();
-    var item = $('<section class="list-item"></section>');
-    var input = $('<input class="item-input">');
-    item.append(input);
-    this.input = input;
-    this.item = item;
+    this.item = $('<section class="list-item"></section>');
 };
 
 TodoItem.prototype.create = function(values) {
@@ -17,9 +13,13 @@ TodoItem.prototype.create = function(values) {
 
 TodoItem.prototype.make = function(values) {
     var self = this;
-    self.input.focus();
-    self.input.keyup(function(event) {
-        var value = self.input.val();
+    var input = $('<input class="item-input">');
+
+    this.item.append(input);
+
+    input.focus();
+    input.keyup(function(event) {
+        var value = input.val();
         if (event.keyCode !== hotkey.ENTER) return;
         if (event.keyCode === hotkey.ENTER && value === '') {
             self.item.remove();
@@ -28,8 +28,8 @@ TodoItem.prototype.make = function(values) {
 
         var heading = $('<h3 class="todo-heading">' + value + '</h3>');
 
+        input.remove();
         self.item.append(heading);
-        self.input.remove();
 
         values({
             title: value

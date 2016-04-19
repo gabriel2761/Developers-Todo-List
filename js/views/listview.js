@@ -1,7 +1,7 @@
 var ListView = function(key, label, items) {
     this.key = key;
     this.label = label;
-    this.items = items;
+    this.items = items.reverse();
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();

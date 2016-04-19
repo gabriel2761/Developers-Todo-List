@@ -11,8 +11,6 @@ hotkey.CREATE_TODO_ITEM = 191;
 hotkey.CREATE_TODO_ITEM2 = 78;
 hotkey.ITEM_UP = 75;
 hotkey.ITEM_DOWN = 74;
-hotkey.NAVBAR_RIGHT_2 = 76;
-hotkey.NAVBAR_LEFT_2 = 72;
 
 var HotKeys = function() {
     this.newListInput = new NewListInput();
@@ -22,6 +20,8 @@ var HotKeys = function() {
         'fslash': hotkey.CREATE_TODO_ITEM,
         'j': hotkey.ITEM_DOWN,
         'k': hotkey.ITEM_UP,
+        'h': hotkey.NAVBAR_LEFT,
+        'l': hotkey.NAVBAR_RIGHT,
     };
     this.ctrlkeys = {
         'v': hotkey.TOGGLE_NAV,

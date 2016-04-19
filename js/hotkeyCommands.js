@@ -18,19 +18,21 @@ var HotKeys = function() {
     this.newListInput = new NewListInput();
     this.navigationBar = new NavigationBar();
     this.listview = null;
+    this.singlekeys = {
+        'fslash': hotkey.CREATE_TODO_ITEM,
+        'j': hotkey.ITEM_DOWN,
+        'k': hotkey.ITEM_UP,
+    };
     this.ctrlkeys = {
         'v': hotkey.TOGGLE_NAV,
         't': hotkey.NEW_LIST,
         'i': hotkey.TOGGLE_INFOBAR,
         'ch': hotkey.NAVBAR_LEFT,
         'cl': hotkey.NAVBAR_RIGHT,
-        'd': hotkey.DELETE_LIST,
         'n': hotkey.CREATE_TODO_ITEM2,
     };
-    this.singlekeys = {
-        'fslash': hotkey.CREATE_TODO_ITEM,
-        'j': hotkey.ITEM_DOWN,
-        'k': hotkey.ITEM_UP,
+    this.ctrlshiftkeys = {
+        'd': hotkey.DELETE_LIST,
     };
 
 };
@@ -49,6 +51,12 @@ HotKeys.prototype.createSingleKeyListeners = function() {
         switch(event.keyCode) {
             case key.fslash:
                 self.createTodoItem();
+                break;
+            case key.h:
+                self.navbarLeft();
+                break;
+            case key.l:
+                self.navbarRight();
                 break;
         }
         console.log(event.keyCode);
@@ -85,7 +93,7 @@ HotKeys.prototype.createCtrlKeyListeners = function() {
 
 HotKeys.prototype.createCtrlShiftKeyListeners = function(first_argument) {
     var self = this;
-    var key = self.key;
+    var key = self.ctrlshiftkeys;
     $(document).keyup(function(event) {
         if (!event.ctrlKey && !event.shiftKey) return;
         switch (event.keyCode) {

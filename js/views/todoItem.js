@@ -19,24 +19,24 @@ TodoItem.prototype.make = function(values) {
 
     input.focus();
     input.keyup(function(event) {
-        var value = input.val();
+        var title = input.val();
         if (event.keyCode !== hotkey.ENTER) return;
-        if (event.keyCode === hotkey.ENTER && value === '') {
+        if (event.keyCode === hotkey.ENTER && title === '') {
             self.item.remove();
             return;
         }
 
-        var heading = $('<h3 class="todo-heading">' + value + '</h3>');
+        var heading = $('<h3 class="todo-heading">' + title + '</h3>');
 
         input.remove();
         self.item.append(heading);
 
         values({
-            title: value
+            title: title
         });
     });
 
-    self.input.focusout(function() {
+    input.focusout(function() {
         self.item.remove();
     });
 };

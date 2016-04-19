@@ -30,9 +30,7 @@ Database.prototype.addTodo = function(key, values) {
     var lists = JSON.parse(localStorage.getItem(this.KEY));
     lists.forEach(function(list) {
         if (list.key === key) {
-            list.todos.push({
-                title: values.label
-            });
+            list.todos.push(values);
         }
     });
     localStorage.setItem(this.KEY, JSON.stringify(lists));

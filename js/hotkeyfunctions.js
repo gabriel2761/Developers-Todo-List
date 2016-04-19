@@ -13,12 +13,14 @@ HotKeys.prototype.toggleNavigationBar = function() {
 HotKeys.prototype.navbarLeft = function() {
     this.navigationBar.moveLeft();
     this.listview = this.navigationBar.renderList();
+    this.listview.clear();
     this.listview.render();
 };
 
 HotKeys.prototype.navbarRight = function() {
     this.navigationBar.moveRight();
     this.listview = this.navigationBar.renderList();
+    this.listview.clear();
     this.listview.render();
 };
 

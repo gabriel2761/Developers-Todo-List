@@ -23,12 +23,16 @@ ListView.prototype.toggleInfoView = function() {
 
 ListView.prototype.render = function() {
     var self = this;
-    self.listinfo.empty();
     self.listinfo.append(this.label);
     self.items.forEach(function(values) {
         var todo = new TodoItem();
         self.listview.append(todo.create(values));
     });
+};
+
+ListView.prototype.clear = function() {
+    this.listinfo.empty();
+    this.listview.empty();
 };
 
 ListView.prototype.remove = function() {

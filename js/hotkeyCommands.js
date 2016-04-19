@@ -9,34 +9,42 @@ hotkey.NAVBAR_RIGHT = 76;
 hotkey.DELETE_LIST = 68;
 hotkey.CREATE_TODO_ITEM = 191;
 hotkey.CREATE_TODO_ITEM2 = 78;
+hotkey.ITEM_UP = 75;
+hotkey.ITEM_DOWN = 74;
+hotkey.NAVBAR_RIGHT_2 = 76;
+hotkey.NAVBAR_LEFT_2 = 72;
 
 var HotKeys = function() {
     this.newListInput = new NewListInput();
     this.navigationBar = new NavigationBar();
     this.listview = null;
-    this.key = {
+    this.ctrlkeys = {
         'v': hotkey.TOGGLE_NAV,
         't': hotkey.NEW_LIST,
         'i': hotkey.TOGGLE_INFOBAR,
-        'h': hotkey.NAVBAR_LEFT,
-        'l': hotkey.NAVBAR_RIGHT,
+        'ch': hotkey.NAVBAR_LEFT,
+        'cl': hotkey.NAVBAR_RIGHT,
         'd': hotkey.DELETE_LIST,
-        'fslash': hotkey.CREATE_TODO_ITEM,
-        'n': hotkey.CREATE_TODO_ITEM2
+        'n': hotkey.CREATE_TODO_ITEM2,
     };
+    this.singlekeys = {
+        'fslash': hotkey.CREATE_TODO_ITEM,
+        'j': hotkey.ITEM_DOWN,
+        'k': hotkey.ITEM_UP,
+    };
+
 };
 
 HotKeys.prototype.initialize = function() {
     this.createSingleKeyListeners();
     this.createCtrlKeyListeners();
     this.createCtrlShiftKeyListeners();
-
     this.attachViews();
 };
 
 HotKeys.prototype.createSingleKeyListeners = function() {
     var self = this;
-    var key = self.key;
+    var key = self.singlekeys;
     $(document).keyup(function(event) {
         switch(event.keyCode) {
             case key.fslash:
@@ -49,7 +57,7 @@ HotKeys.prototype.createSingleKeyListeners = function() {
 
 HotKeys.prototype.createCtrlKeyListeners = function() {
     var self = this;
-    var key = self.key;
+    var key = self.ctrlkeys;
     $(document).keyup(function(event) {
         if (!event.ctrlKey) return;
         switch (event.keyCode) {
@@ -62,10 +70,10 @@ HotKeys.prototype.createCtrlKeyListeners = function() {
             case key.i:
                 self.toggleListInfo();
                 break;
-            case key.h:
+            case key.ch:
                 self.navbarLeft();
                 break;
-            case key.l:
+            case key.cl:
                 self.navbarRight();
                 break;
             case key.n:

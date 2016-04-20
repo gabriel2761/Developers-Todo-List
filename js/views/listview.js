@@ -45,7 +45,6 @@ ListView.prototype.creatingItem = function(key) {
 
     var item = new TodoItem();
     if (this.disableKeys) {
-        this.createTodoItem();
         item.render();
         item.make(function(values) {
             self.database.addTodo(self.key, values);
@@ -58,9 +57,6 @@ ListView.prototype.creatingItem = function(key) {
         self.clear();
         self.render();
     }
-};
-
-ListView.prototype.createTodoItem = function() {
 };
 
 ListView.prototype.toggleInfoView = function() {

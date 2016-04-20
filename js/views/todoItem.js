@@ -28,10 +28,7 @@ TodoItem.prototype.make = function(values) {
     input.keyup(function(event) {
         var title = input.val();
         if (event.keyCode !== hotkey.ENTER) return;
-        if (event.keyCode === hotkey.ENTER && title === '') {
-            self.item.remove();
-            return;
-        }
+        if (event.keyCode === hotkey.ENTER && title === '') return;
 
         var heading = $('<h3 class="todo-heading">' + title + '</h3>');
 
@@ -41,10 +38,6 @@ TodoItem.prototype.make = function(values) {
         values({
             title: title
         });
-    });
-
-    input.focusout(function() {
-        self.item.remove();
     });
 };
 

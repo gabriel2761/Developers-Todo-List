@@ -5,11 +5,17 @@ var TodoItem = function() {
     this.item = $('<section class="list-item"></section>');
 };
 
+TodoItem.prototype.removeFocus = function() {
+    this.item.removeClass('selected');
+};
+
+TodoItem.prototype.focus = function() {
+    this.item.addClass('selected');
+};
+
 TodoItem.prototype.create = function(values) {
     var heading = $('<h3 class="todo-heading">' + values.title + '</h3>');
     this.item.append(heading);
-    this.item.addClass('selected');
-    return this.item;
 };
 
 TodoItem.prototype.make = function(values) {
@@ -43,5 +49,5 @@ TodoItem.prototype.make = function(values) {
 };
 
 TodoItem.prototype.render = function() {
-    return this.item;
+    $('#listview').prepend(this.item);
 };

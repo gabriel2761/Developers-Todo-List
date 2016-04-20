@@ -15,7 +15,7 @@ hotkey.ITEM_DOWN = 74;
 var HotKeys = function() {
     this.newListInput = new NewListInput();
     this.navigationBar = new NavigationBar();
-    this.listview = null;
+    this.listview = null; // TODO: ADD STATISTICS PAGE
     this.singlekeys = {
         'fslash': hotkey.CREATE_TODO_ITEM,
         'j': hotkey.ITEM_DOWN,
@@ -27,8 +27,6 @@ var HotKeys = function() {
         'v': hotkey.TOGGLE_NAV,
         't': hotkey.NEW_LIST,
         'i': hotkey.TOGGLE_INFOBAR,
-        'ch': hotkey.NAVBAR_LEFT,
-        'cl': hotkey.NAVBAR_RIGHT,
         'n': hotkey.CREATE_TODO_ITEM2,
     };
     this.ctrlshiftkeys = {
@@ -77,12 +75,6 @@ HotKeys.prototype.createCtrlKeyListeners = function() {
                 break;
             case key.i:
                 self.toggleListInfo();
-                break;
-            case key.ch:
-                self.navbarLeft();
-                break;
-            case key.cl:
-                self.navbarRight();
                 break;
             case key.n:
                 self.createTodoItem();

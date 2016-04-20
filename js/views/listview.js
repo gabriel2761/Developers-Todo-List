@@ -5,6 +5,7 @@ var ListView = function(key, label, items) {
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();
+    this.focusIndex = items.length - 1;
     this.renderItems(items);
 };
 
@@ -20,21 +21,25 @@ ListView.prototype.renderItems = function(items) {
 };
 
 ListView.prototype.moveItemDown = function() {
-
+    this.items[this.focusIndex].removeFocus();
+    if (this.focusIndex === 0) this.focusIndex = this.items.length;
+    this.items[--this.focusIndex].focus();
 };
 
 ListView.prototype.moveItemUp = function() {
-
+    this.items[this.focusIndex].removeFocus();
+    if (this.focusIndex === this.items.length - 1)  this.focusIndex = -1;
+    this.items[++this.focusIndex].focus();
 };
 
 ListView.prototype.createTodoItem = function() {
     var self = this;
     var item = new TodoItem();
+    item.render();
     item.make(function(values) {
         if (values === null) return;
         self.database.addTodo(self.key, values);
     });
-    item.render();
 };
 
 ListView.prototype.toggleInfoView = function() {
@@ -44,7 +49,10 @@ ListView.prototype.toggleInfoView = function() {
 ListView.prototype.render = function() {
     this.listinfo.append(this.label);
     var items = this.items;
-    if (items.length > 0) items[items.length - 1].focus();
+    if (items.length > 0) {
+        this.focusIndex = this.items.length - 1;
+        items[this.focusIndex].focus();
+    }
     items.forEach(function(item) {
         item.render();
     });

@@ -10,6 +10,14 @@ HotKeys.prototype.toggleNavigationBar = function() {
     this.navigationBar.toggleView();
 };
 
+HotKeys.prototype.moveItemDown = function() {
+    this.listview.moveItemDown();
+};
+
+HotKeys.prototype.moveItemUp = function() {
+    this.listview.moveItemUp();
+};
+
 HotKeys.prototype.navbarLeft = function() {
     this.navigationBar.moveLeft();
     this.listview = this.navigationBar.renderList();

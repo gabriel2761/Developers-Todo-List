@@ -56,6 +56,12 @@ HotKeys.prototype.createSingleKeyListeners = function() {
             case key.l:
                 self.navbarRight();
                 break;
+            case key.j:
+                self.moveItemDown();
+                break;
+            case key.k:
+                self.moveItemUp();
+                break;
         }
         console.log(event.keyCode);
     });

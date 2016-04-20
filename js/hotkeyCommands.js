@@ -45,9 +45,9 @@ HotKeys.prototype.initialize = function() {
 HotKeys.prototype.createSingleKeyListeners = function() {
     var self = this;
     var key = self.singlekeys;
-    $(document).keyup(function(event) {
+    $(document).keydown(function(event) {
 
-        if (self.creatingItem(event.keyCode)) {
+        if (self.creatingItem(event.keyCode) || self.listview.disableKeys) {
             return;
         }
 
@@ -72,7 +72,7 @@ HotKeys.prototype.createSingleKeyListeners = function() {
 HotKeys.prototype.createCtrlKeyListeners = function() {
     var self = this;
     var key = self.ctrlkeys;
-    $(document).keyup(function(event) {
+    $(document).keydown(function(event) {
         if (!event.ctrlKey) return;
         switch (event.keyCode) {
             case key.v:
@@ -94,7 +94,7 @@ HotKeys.prototype.createCtrlKeyListeners = function() {
 HotKeys.prototype.createCtrlShiftKeyListeners = function(first_argument) {
     var self = this;
     var key = self.ctrlshiftkeys;
-    $(document).keyup(function(event) {
+    $(document).keydown(function(event) {
         if (!event.ctrlKey && !event.shiftKey) return;
         switch (event.keyCode) {
             case key.d:

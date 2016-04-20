@@ -25,7 +25,7 @@ TodoItem.prototype.make = function(values) {
     this.item.append(input);
 
     input.focus();
-    input.keyup(function(event) {
+    input.keydown(function(event) {
         var title = input.val();
         if (event.keyCode !== hotkey.ENTER) return;
         if (event.keyCode === hotkey.ENTER && title === '') return;

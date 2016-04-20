@@ -44,7 +44,7 @@ HotKeys.prototype.initialize = function() {
 HotKeys.prototype.createSingleKeyListeners = function() {
     var self = this;
     var key = self.singlekeys;
-    $(document).keydown(function(event) {
+    $(document).keyup(function(event) {
 
         if (self.listview.creatingItem(event.keyCode) || self.listview.disableKeys) {
             return;

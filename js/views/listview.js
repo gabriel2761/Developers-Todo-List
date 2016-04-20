@@ -38,9 +38,9 @@ ListView.prototype.moveItemUp = function() {
 };
 
 ListView.prototype.creatingItem = function(key) {
+    console.log(this.disableKeys);
     if (key !== hotkey.CREATE_TODO_ITEM) return false;
     this.disableKeys = !this.disableKeys;
-
     var self = this;
 
     var item = new TodoItem();
@@ -48,15 +48,10 @@ ListView.prototype.creatingItem = function(key) {
         this.createTodoItem();
         item.render();
         item.make(function(values) {
-            if (values === null) {
-                item.remove();
-                return;
-            }
             self.database.addTodo(self.key, values);
             self.clear();
             self.render();
-            this.disableKeys = false;
-            return false;
+            self.disableKeys = false;
         });
     } else {
         item.remove();

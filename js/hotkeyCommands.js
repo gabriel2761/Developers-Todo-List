@@ -17,7 +17,6 @@ var HotKeys = function() {
     this.navigationBar = new NavigationBar();
     this.listview = null; // TODO: ADD STATISTICS PAGE
     this.singlekeys = {
-        'fslash': hotkey.CREATE_TODO_ITEM,
         'j': hotkey.ITEM_DOWN,
         'k': hotkey.ITEM_UP,
         'h': hotkey.NAVBAR_LEFT,

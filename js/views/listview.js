@@ -1,16 +1,17 @@
-var ListView = function(key, label, items) {
+var ListView = function(key, label) {
     this.key = key;
     this.label = label;
     this.items = [];
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();
-    this.focusIndex = items.length - 1;
-    this.renderItems(items);
+    this.updateItems();
 };
 
-ListView.prototype.renderItems = function(items) {
+ListView.prototype.updateItems = function() {
     var self = this;
+    self.items = [];
+    items = this.database.getListItems(this.key);
     items.forEach(function(item) {
         var todo = new TodoItem();
         todo.create({
@@ -18,6 +19,7 @@ ListView.prototype.renderItems = function(items) {
         });
         self.items.push(todo);
     });
+    return self.items;
 };
 
 ListView.prototype.moveItemDown = function() {
@@ -39,6 +41,8 @@ ListView.prototype.createTodoItem = function() {
     item.make(function(values) {
         if (values === null) return;
         self.database.addTodo(self.key, values);
+        self.clear();
+        self.render();
     });
 };
 
@@ -48,7 +52,7 @@ ListView.prototype.toggleInfoView = function() {
 
 ListView.prototype.render = function() {
     this.listinfo.append(this.label);
-    var items = this.items;
+    var items = this.updateItems();
     if (items.length > 0) {
         this.focusIndex = this.items.length - 1;
         items[this.focusIndex].focus();

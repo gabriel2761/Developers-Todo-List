@@ -26,6 +26,15 @@ Database.prototype.removeList = function(key) {
     localStorage.setItem(this.KEY, JSON.stringify(lists));
 };
 
+Database.prototype.getListItems = function(key) {
+    var lists = JSON.parse(localStorage.getItem(this.KEY));
+    var todos = null;
+    lists.forEach(function(list) {
+        if (list.key === key) todos = list.todos;
+    });
+    return todos;
+};
+
 Database.prototype.addTodo = function(key, values) {
     var lists = JSON.parse(localStorage.getItem(this.KEY));
     lists.forEach(function(list) {

@@ -1,3 +1,5 @@
+var hotkey = hotkey || {};
+
 var ListView = function(key, label) {
     this.key = key;
     this.label = label;
@@ -5,6 +7,7 @@ var ListView = function(key, label) {
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();
+    this.disableKeys = false;
     this.updateItems();
 };
 
@@ -34,16 +37,35 @@ ListView.prototype.moveItemUp = function() {
     this.items[++this.focusIndex].focus();
 };
 
-ListView.prototype.createTodoItem = function() {
+ListView.prototype.creatingItem = function(key) {
+    if (key !== hotkey.CREATE_TODO_ITEM) return false;
+    this.disableKeys = !this.disableKeys;
+
     var self = this;
+
     var item = new TodoItem();
-    item.render();
-    item.make(function(values) {
-        if (values === null) return;
-        self.database.addTodo(self.key, values);
+    if (this.disableKeys) {
+        this.createTodoItem();
+        item.render();
+        item.make(function(values) {
+            if (values === null) {
+                item.remove();
+                return;
+            }
+            self.database.addTodo(self.key, values);
+            self.clear();
+            self.render();
+            this.disableKeys = false;
+            return false;
+        });
+    } else {
+        item.remove();
         self.clear();
         self.render();
-    });
+    }
+};
+
+ListView.prototype.createTodoItem = function() {
 };
 
 ListView.prototype.toggleInfoView = function() {

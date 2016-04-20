@@ -46,10 +46,12 @@ HotKeys.prototype.createSingleKeyListeners = function() {
     var self = this;
     var key = self.singlekeys;
     $(document).keyup(function(event) {
+
+        if (self.creatingItem(event.keyCode)) {
+            return;
+        }
+
         switch(event.keyCode) {
-            case key.fslash:
-                self.createTodoItem();
-                break;
             case key.h:
                 self.navbarLeft();
                 break;

@@ -41,6 +41,10 @@ TodoItem.prototype.make = function(values) {
     });
 };
 
+TodoItem.prototype.remove = function() {
+    this.item.remove();
+};
+
 TodoItem.prototype.render = function() {
     $('#listview').prepend(this.item);
 };

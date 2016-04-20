@@ -40,8 +40,8 @@ HotKeys.prototype.removeList = function() {
     this.navigationBar.render();
 };
 
-HotKeys.prototype.createTodoItem = function() {
-    this.listview.createTodoItem();
+HotKeys.prototype.creatingItem = function(key) {
+    return this.listview.creatingItem(key);
 };
 
 HotKeys.prototype.showList = function() {

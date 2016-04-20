@@ -63,6 +63,10 @@ body {
         font-size: 19px;
     }
 
+    .list-item.selected {
+        box-shadow: 0 3px 8px #888888;
+    }
+
     .item-input {
         width: 100%;
         padding: 16px;

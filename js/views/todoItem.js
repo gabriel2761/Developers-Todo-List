@@ -8,6 +8,7 @@ var TodoItem = function() {
 TodoItem.prototype.create = function(values) {
     var heading = $('<h3 class="todo-heading">' + values.title + '</h3>');
     this.item.append(heading);
+    this.item.addClass('selected');
     return this.item;
 };
 

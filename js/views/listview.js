@@ -1,7 +1,7 @@
 var ListView = function(key, label, items) {
     this.key = key;
     this.label = label;
-    this.items = items.reverse();
+    this.items = items;
     this.listinfo = $('#listinfo');
     this.listview = $('#listview');
     this.database = new Database();
@@ -24,7 +24,8 @@ ListView.prototype.toggleInfoView = function() {
 ListView.prototype.render = function() {
     var self = this;
     self.listinfo.append(this.label);
-    self.items.forEach(function(values) {
+    var items = self.items;
+    items.forEach(function(values) {
         var todo = new TodoItem();
         self.listview.append(todo.create(values));
     });

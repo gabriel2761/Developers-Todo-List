@@ -2,6 +2,7 @@ var App = function() {
     this.hotkeys = new Hotkeys();
     this.inputListName = new InputListName();
     this.navbar = new Navbar();
+    this.listview = new ListView();
 };
 
 App.prototype.initializeControls = function() {
@@ -10,7 +11,12 @@ App.prototype.initializeControls = function() {
         var inputVisible = self.checkListNameInput(key);
         if (inputVisible) return;
 
-        console.log('commands enabled ' + key);
+        switch (key) {
+            case '/':
+                self.listview.makeTodo();
+                break;
+
+        }
     });
 };
 

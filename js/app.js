@@ -10,7 +10,14 @@ App.prototype.initializeControls = function() {
         var inputVisible = false;
 
         self.inputListName.checkVisible(key, function(result) {
-            if (result) inputVisible = true;
+            if (result.visible) {
+                inputVisible = true;
+                return;
+            }
+
+            if (result.value !== undefined && result.value !== '') {
+                alert('List created');
+            }
         });
 
         if (inputVisible) return;

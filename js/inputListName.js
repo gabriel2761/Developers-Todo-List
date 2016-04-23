@@ -2,22 +2,31 @@ var InputListName = function() {
     this.element = $('#input-newlist');
 };
 
-InputListName.prototype.checkVisible = function(key, visible) {
+InputListName.prototype.checkVisible = function(key, result) {
     if (!this.isHidden()) {
         if (key === 'enter') {
-            this.clear();
             this.hide();
+            result({
+                'visible': false,
+                'value': this.element.val()
+            });
+            return;
         }
-        visible(true);
     }
 
     if (key === 't' && this.isHidden()) {
+        this.clear();
         this.show();
         this.focus();
-        visible(true);
+        result({
+            'visible': true
+        });
+        return;
     }
 
-    visible(false);
+    result({
+        'visible': false
+    });
 };
 
 InputListName.prototype.isHidden = function() {

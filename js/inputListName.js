@@ -18,3 +18,6 @@ InputListName.prototype.focus = function() {
     this.element.focus();
 };
 
+InputListName.prototype.clear = function() {
+    this.element.val('');
+};

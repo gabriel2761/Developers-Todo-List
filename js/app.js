@@ -10,6 +10,7 @@ App.prototype.initializeControls = function() {
 
         if (!self.inputListName.isHidden()) {
             if (key === 'enter') {
+                self.inputListName.clear();
                 self.inputListName.hide();
             }
             return;
@@ -20,6 +21,8 @@ App.prototype.initializeControls = function() {
             self.inputListName.focus();
             return;
         }
+
+
 
         console.log('commands enabled ' + key);
     });

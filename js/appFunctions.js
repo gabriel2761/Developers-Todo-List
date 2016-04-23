@@ -7,7 +7,8 @@ App.prototype.checkListNameInput = function(key) {
             result = true;
         }
         if (result.value !== undefined && result.value !== '') {
-            alert('List created');
+            self.navbar.addTab(result.value);
+            self.navbar.render();
         }
     });
     return result;

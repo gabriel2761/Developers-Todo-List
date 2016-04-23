@@ -7,19 +7,7 @@ App.prototype.initializeControls = function() {
     var self = this;
 
     self.hotkeys.listen(function(key) {
-        var inputVisible = false;
-
-        self.inputListName.checkVisible(key, function(result) {
-            if (result.visible) {
-                inputVisible = true;
-                return;
-            }
-
-            if (result.value !== undefined && result.value !== '') {
-                alert('List created');
-            }
-        });
-
+        var inputVisible = self.checkListNameInput(key);
         if (inputVisible) return;
 
         console.log('commands enabled ' + key);

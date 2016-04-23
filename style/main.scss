@@ -42,5 +42,9 @@ body {
         font-size: 26px;
         color: #666;
     }
+
+     #input-newlist:focus {
+        outline-color: #673ab7;
+    }
 }
 

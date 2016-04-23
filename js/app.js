@@ -7,22 +7,13 @@ App.prototype.initializeControls = function() {
     var self = this;
 
     self.hotkeys.listen(function(key) {
+        var inputVisible = false;
 
-        if (!self.inputListName.isHidden()) {
-            if (key === 'enter') {
-                self.inputListName.clear();
-                self.inputListName.hide();
-            }
-            return;
-        }
+        self.inputListName.checkVisible(key, function(result) {
+            if (result) inputVisible = true;
+        });
 
-        if (key === 't' && self.inputListName.isHidden()) {
-            self.inputListName.show();
-            self.inputListName.focus();
-            return;
-        }
-
-
+        if (inputVisible) return;
 
         console.log('commands enabled ' + key);
     });

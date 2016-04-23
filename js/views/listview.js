@@ -5,6 +5,8 @@ var ListView = function() {
 
 ListView.prototype.makeTodo = function() {
     var todo = new Todo();
-    todo.make();
+    todo.make(function(result) {
+
+    });
 };
 

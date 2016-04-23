@@ -8,13 +8,14 @@ var App = function() {
 App.prototype.initializeControls = function() {
     var self = this;
     self.hotkeys.listen(function(key) {
-        var inputVisible = self.checkListNameInput(key);
-        if (inputVisible) return;
 
-        if (key === '/') {
-            self.listview.makeTodo();
+        switch (key) {
+            case '/':
+                self.listview.makeTodo();
+                break;
         }
 
+        console.log(key);
     });
 };
 

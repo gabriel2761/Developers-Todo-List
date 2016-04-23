@@ -10,6 +10,9 @@ App.prototype.initializeControls = function() {
     self.hotkeys.listen(function(key) {
 
         switch (key) {
+            case 't':
+                self.makeList();
+                break;
             case '/':
                 self.listview.makeTodo();
                 break;

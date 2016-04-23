@@ -1,27 +1,37 @@
 var InputListName = function() {
     this.element = $('#input-listname');
+    this.setFocusOutListener();
 };
 
-InputListName.prototype.checkVisible = function(key, result) {
-    if (!this.isHidden()) {
-        if (key === 'enter') {
-            this.hide();
-            result({ 'visible': false, 'value': this.element.val() });
+InputListName.prototype.make = function(result) {
+    var self = this;
+    var key = new KeyMap();
+    self.show();
+    self.element.off('keyup');
+    self.element.keyup(function(event) {
+
+        if (key.value(event.keyCode) !== 'enter') {
+            result(null);
             return;
         }
-    }
-    if (key === 't' && this.isHidden()) {
-        this.clear();
-        this.show();
-        this.focus();
-        result({ 'visible': true });
-        return;
-    }
-    result({ 'visible': false });
+
+        $(document).click();
+
+        if (self.element.val() === '') {
+            result(null);
+            return;
+        }
+
+        result(self.element.val());
+    });
 };
 
-InputListName.prototype.isHidden = function() {
-    return this.element.hasClass('hidden');
+InputListName.prototype.setFocusOutListener = function() {
+    var self = this;
+    this.element.focusout(function() {
+        $(document).click();
+        self.hide();
+    });
 };
 
 InputListName.prototype.hide = function() {
@@ -30,10 +40,8 @@ InputListName.prototype.hide = function() {
 
 InputListName.prototype.show = function() {
     this.element.removeClass('hidden');
-};
-
-InputListName.prototype.focus = function() {
     this.element.focus();
+    this.clear();
 };
 
 InputListName.prototype.clear = function() {

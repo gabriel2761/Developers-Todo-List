@@ -27,7 +27,7 @@ body {
     }
 }
 
-#input-newlist-container {
+#input-listname-container {
     position: fixed;
     top: 170px;
     left: 0;
@@ -35,7 +35,7 @@ body {
     height: 0;
     text-align: center;
 
-    #input-newlist {
+    #input-listname {
         display: inline-block;
         padding: 18px;
         text-align: center;
@@ -43,7 +43,7 @@ body {
         color: #666;
     }
 
-     #input-newlist:focus {
+     #input-listname:focus {
         outline-color: #673ab7;
     }
 }

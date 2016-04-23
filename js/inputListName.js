@@ -1,5 +1,5 @@
 var InputListName = function() {
-    this.element = $('#input-newlist');
+    this.element = $('#input-listname');
 };
 
 InputListName.prototype.checkVisible = function(key, result) {

@@ -14,4 +14,15 @@ body {
     height: 40px;
     background-color: purple;
     display: flex;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+       width: 0 !important;
+       height: 0 !important;
+    }
+
+    .navbar-tab {
+        margin: 0 12px;
+        color: #aaa;
+    }
 }

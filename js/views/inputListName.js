@@ -6,27 +6,18 @@ InputListName.prototype.checkVisible = function(key, result) {
     if (!this.isHidden()) {
         if (key === 'enter') {
             this.hide();
-            result({
-                'visible': false,
-                'value': this.element.val()
-            });
+            result({ 'visible': false, 'value': this.element.val() });
             return;
         }
     }
-
     if (key === 't' && this.isHidden()) {
         this.clear();
         this.show();
         this.focus();
-        result({
-            'visible': true
-        });
+        result({ 'visible': true });
         return;
     }
-
-    result({
-        'visible': false
-    });
+    result({ 'visible': false });
 };
 
 InputListName.prototype.isHidden = function() {

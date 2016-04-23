@@ -11,12 +11,10 @@ App.prototype.initializeControls = function() {
         var inputVisible = self.checkListNameInput(key);
         if (inputVisible) return;
 
-        switch (key) {
-            case '/':
-                self.listview.makeTodo();
-                break;
-
+        if (key === '/') {
+            self.listview.makeTodo();
         }
+
     });
 };
 

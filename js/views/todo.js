@@ -45,5 +45,5 @@ Todo.prototype.remove = function() {
 };
 
 Todo.prototype.render = function() {
-    this.listview.append(this.element);
+    this.listview.prepend(this.element);
 };

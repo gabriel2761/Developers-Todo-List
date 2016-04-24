@@ -51,7 +51,7 @@ Navbar.prototype.deleteTab = function() {
     this.tabs[this.index].remove();
     this.tabs.splice(this.index, 1);
     if (!this.hasTabs()) return;
-    if (this.index === 0) {
+    if (this.index === this.tabs.length - 1) {
         this.tabs[this.index].select();
     } else {
         this.tabs[--this.index].select();

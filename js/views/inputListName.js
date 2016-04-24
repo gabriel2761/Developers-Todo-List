@@ -3,7 +3,7 @@ var InputListName = function() {
     this.setFocusOutListener();
 };
 
-InputListName.prototype.make = function(result) {
+InputListName.prototype.make = function(listname) {
     var self = this;
     var key = new KeyMap();
     self.show();
@@ -11,18 +11,18 @@ InputListName.prototype.make = function(result) {
     self.element.keyup(function(event) {
 
         if (key.value(event.keyCode) !== 'enter') {
-            result(null);
+            listname(null);
             return;
         }
 
         $(document).click();
 
         if (self.element.val() === '') {
-            result(null);
+            listname(null);
             return;
         }
 
-        result(self.element.val());
+        listname(self.element.val());
     });
 };
 

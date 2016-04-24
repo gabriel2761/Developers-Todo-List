@@ -9,18 +9,29 @@ ListView.prototype.makeList = function(listname) {
 };
 
 ListView.prototype.makeTodo = function() {
-    if (this.lists.length < 1) {
-        // TODO: Change to a snackbar
-        alert('need to create a list first');
-        return;
-    }
+    if (this.hasNoLists()) return;
     this.lists[0].makeTodo();
 };
 
-ListView.prototype.next = function() {
-
+ListView.prototype.hasNoLists = function() {
+    if (this.lists.length > 0) return false;
+    return true;
 };
 
-ListView.prototype.prev = function() {
+ListView.prototype.nextList = function() {
+    if (this.hasNoLists()) return;
+    this.element.empty();
+    if (this.index === this.lists.length - 1) {
+        this.index = -1;
+    }
+    this.lists[++this.index].render();
+};
 
+ListView.prototype.prevList = function() {
+    if (this.hasNoLists()) return;
+    this.element.empty();
+    if (this.index === 0) {
+        this.index = this.lists.length;
+    }
+    this.lists[--this.index].render();
 };

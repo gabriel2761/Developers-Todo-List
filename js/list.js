@@ -10,3 +10,10 @@ List.prototype.makeTodo = function() {
         if (created) todos.push(todo);
     });
 };
+
+List.prototype.render = function() {
+    console.log(this.listname);
+    this.todos.forEach(function(todo) {
+        todo.render();
+    });
+};

@@ -7,3 +7,12 @@ App.prototype.makeList = function() {
         self.listview.makeList(listname);
     });
 };
+
+App.prototype.nextList = function() {
+    this.listview.nextList();
+};
+
+App.prototype.prevList = function() {
+    this.listview.prevList();
+};
+

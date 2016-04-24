@@ -16,6 +16,12 @@ App.prototype.initializeControls = function() {
             case '/':
                 self.listview.makeTodo();
                 break;
+            case 'l':
+                self.nextList();
+                break;
+            case 'h':
+                self.prevList();
+                break;
         }
 
         console.log(key);

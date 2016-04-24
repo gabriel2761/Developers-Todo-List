@@ -5,7 +5,7 @@ var Todo = function() {
 
 Todo.prototype.make = function(result) {
     var key = new KeyMap();
-    var input = $('<input class="todo-input" readonly>');
+    var input = $('<input class="todo-input" placeholder="Todo..." readonly>');
     var heading = $('<h3 class="todo-heading"></h3>');
     var element = this.element;
 

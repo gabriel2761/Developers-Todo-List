@@ -30,7 +30,8 @@ InputListName.prototype.make = function(listname) {
 
 InputListName.prototype.setFocusOutListener = function() {
     var self = this;
-    this.element.focusout(function() {
+    self.element.focusout(function() {
+        self.element.prop('readonly', true);
         $(document).click();
         self.hide();
     });

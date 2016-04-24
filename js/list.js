@@ -25,7 +25,9 @@ List.prototype.makeTodo = function() {
             todos.push(todo);
             self.index = todos.length - 1;
         } else if (result === 'cancelled') {
-            self.todos[self.index].select();
+            if (self.hasTodos()) {
+                self.todos[self.index].select();
+            }
         }
     });
 };

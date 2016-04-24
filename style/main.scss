@@ -30,8 +30,14 @@ body {
     }
 
     .navbar-tab {
-        margin: 0 12px;
+        width: 80px;
+        margin: 0 16px;
+        text-align: center;
         color: #aaa;
+    }
+
+    .navbar-tab .selected {
+        border-bottom: solid 2px $accent-colour;
     }
 }
 

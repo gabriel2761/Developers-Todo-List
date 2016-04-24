@@ -12,7 +12,6 @@ List.prototype.makeTodo = function() {
 };
 
 List.prototype.render = function() {
-    console.log(this.listname);
     this.todos.forEach(function(todo) {
         todo.render();
     });

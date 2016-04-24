@@ -8,11 +8,13 @@ App.prototype.makeList = function() {
     });
 };
 
-App.prototype.nextList = function() {
+App.prototype.next = function() {
     this.listview.nextList();
+    this.navbar.nextTab();
 };
 
-App.prototype.prevList = function() {
+App.prototype.prev = function() {
     this.listview.prevList();
+    this.navbar.prevTab();
 };
 

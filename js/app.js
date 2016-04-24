@@ -17,10 +17,10 @@ App.prototype.initializeControls = function() {
                 self.listview.makeTodo();
                 break;
             case 'l':
-                self.nextList();
+                self.next();
                 break;
             case 'h':
-                self.prevList();
+                self.prev();
                 break;
         }
 

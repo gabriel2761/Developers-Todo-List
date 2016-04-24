@@ -36,7 +36,7 @@ body {
         color: #aaa;
     }
 
-    .navbar-tab .selected {
+    .navbar-tab.selected {
         border-bottom: solid 2px $accent-colour;
     }
 }

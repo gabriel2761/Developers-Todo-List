@@ -39,3 +39,13 @@ ListView.prototype.prevList = function() {
     }
     this.lists[--this.index].render();
 };
+
+ListView.prototype.up = function() {
+    if (!this.hasLists()) return;
+    this.lists[this.index].up();
+};
+
+ListView.prototype.down = function() {
+    if (!this.hasLists()) return;
+    this.lists[this.index].down();
+};

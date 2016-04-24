@@ -1,6 +1,7 @@
 var List = function(listname) {
     this.listname = listname;
     this.todos = [];
+    this.index = 0;
 };
 
 List.prototype.makeTodo = function() {
@@ -15,4 +16,12 @@ List.prototype.render = function() {
     this.todos.forEach(function(todo) {
         todo.render();
     });
+};
+
+List.prototype.up = function() {
+
+};
+
+List.prototype.down = function() {
+
 };

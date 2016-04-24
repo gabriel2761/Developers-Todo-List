@@ -22,6 +22,12 @@ App.prototype.initializeControls = function() {
             case 'h':
                 self.prev();
                 break;
+            case 'j':
+                self.listview.down();
+                break;
+            case 'k':
+                self.listview.up();
+                break;
         }
 
         console.log(key);

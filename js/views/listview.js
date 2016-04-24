@@ -49,3 +49,8 @@ ListView.prototype.down = function() {
     if (!this.hasLists()) return;
     this.lists[this.index].down();
 };
+
+ListView.prototype.deleteSelectedTodo = function() {
+    if (!this.hasLists()) return;
+    this.lists[this.index].deleteSelectedTodo();
+};

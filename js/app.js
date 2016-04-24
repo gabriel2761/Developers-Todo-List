@@ -28,6 +28,9 @@ App.prototype.initializeControls = function() {
             case 'k':
                 self.listview.up();
                 break;
+            case 'd':
+                self.listview.deleteSelectedTodo();
+                break;
         }
 
         console.log(key);

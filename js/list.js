@@ -12,7 +12,7 @@ List.prototype.makeTodo = function() {
 };
 
 List.prototype.render = function() {
-    this.todos.forEach(function(todo) {
+    this.todos.reverse().forEach(function(todo) {
         todo.render();
     });
 };

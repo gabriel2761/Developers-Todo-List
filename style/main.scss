@@ -81,7 +81,10 @@ body {
         display: flex;
         align-items: center;
         background-color: #fff;
+    }
 
+    .todo.selected {
+        box-shadow: 0 3px 8px #888888;
     }
 
     .todo-heading {

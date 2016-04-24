@@ -16,7 +16,7 @@ Todo.prototype.make = function(result) {
     input.prop('readonly', false);
     input.keydown(function(event) {
         if (key.value(event.keyCode) !== 'enter') {
-            result(false);
+            result(null);
             return;
         }
 
@@ -24,21 +24,29 @@ Todo.prototype.make = function(result) {
         $(document).click();
 
         if (input.val() === '') {
-            result(false);
+            result('cancelled');
             element.remove();
             return;
         }
 
         heading.append(input.val());
         element.append(heading);
-        result(true);
+        result('created');
     });
 
     input.focusout(function() {
-        result(false);
+        result('cancelled');
         element.remove();
         $(document).click();
     });
+};
+
+Todo.prototype.select = function() {
+    this.element.addClass('selected');
+};
+
+Todo.prototype.deselect = function() {
+    this.element.removeClass('selected');
 };
 
 Todo.prototype.remove = function() {

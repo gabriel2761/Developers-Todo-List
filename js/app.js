@@ -33,7 +33,3 @@ App.prototype.initializeControls = function() {
         console.log(key);
     });
 };
-
-App.prototype.renderViews = function() {
-
-};

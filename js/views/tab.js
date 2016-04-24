@@ -14,3 +14,7 @@ Tab.prototype.select = function() {
 Tab.prototype.deselect = function() {
     this.element.removeClass('selected');
 };
+
+Tab.prototype.remove = function() {
+    this.element.remove();
+};

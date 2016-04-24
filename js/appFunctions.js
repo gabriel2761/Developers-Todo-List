@@ -18,3 +18,7 @@ App.prototype.prev = function() {
     this.navbar.prevTab();
 };
 
+App.prototype.deleteList = function() {
+    this.listview.deleteList();
+    this.navbar.deleteTab();
+};

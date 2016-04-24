@@ -16,6 +16,8 @@ Hotkeys.prototype.listen = function(callback) {
     self.element.keydown(function(event) {
         console.log(event.keyCode);
         callback(self.keymap.value(event.keyCode));
+        if (!event.shiftKey) return;
+        callback(self.keymap.shiftValue(event.keyCode));
     });
 };
 

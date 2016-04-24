@@ -54,3 +54,15 @@ ListView.prototype.deleteSelectedTodo = function() {
     if (!this.hasLists()) return;
     this.lists[this.index].deleteSelectedTodo();
 };
+
+ListView.prototype.deleteList = function() {
+    if (!this.hasLists()) return;
+    this.element.empty();
+    this.lists.splice(this.index, 1);
+    if (!this.hasLists()) return;
+    if (this.index === 0) {
+        this.lists[this.index].render();
+    } else {
+        this.lists[--this.index].render();
+    }
+};

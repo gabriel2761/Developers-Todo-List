@@ -31,6 +31,9 @@ App.prototype.initializeControls = function() {
             case 'd':
                 self.listview.deleteSelectedTodo();
                 break;
+            case 'shift+d':
+                self.deleteList();
+                break;
         }
 
         console.log(key);

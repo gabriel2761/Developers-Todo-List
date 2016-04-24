@@ -45,3 +45,15 @@ Navbar.prototype.prevTab = function() {
     }
     this.tabs[--this.index].select();
 };
+
+Navbar.prototype.deleteTab = function() {
+    if (!this.hasTabs()) return;
+    this.tabs[this.index].remove();
+    this.tabs.splice(this.index, 1);
+    if (!this.hasTabs()) return;
+    if (this.index === 0) {
+        this.tabs[this.index].select();
+    } else {
+        this.tabs[--this.index].select();
+    }
+};

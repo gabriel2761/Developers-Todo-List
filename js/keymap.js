@@ -9,8 +9,15 @@ var KeyMap = function() {
         75: 'k',
         68: 'd'
     };
+    this.shiftMap = {
+        68: 'shift+d'
+    };
 };
 
 KeyMap.prototype.value = function(keyCode) {
     return this.Map[keyCode];
+};
+
+KeyMap.prototype.shiftValue = function(keyCode) {
+    return this.shiftMap[keyCode];
 };

@@ -13,17 +13,17 @@ ListView.prototype.makeList = function(listname) {
 };
 
 ListView.prototype.makeTodo = function() {
-    if (this.hasNoLists()) return;
+    if (!this.hasLists()) return;
     this.lists[this.index].makeTodo();
 };
 
-ListView.prototype.hasNoLists = function() {
-    if (this.lists.length > 0) return false;
-    return true;
+ListView.prototype.hasLists = function() {
+    if (this.lists.length > 0) return true;
+    return false;
 };
 
 ListView.prototype.nextList = function() {
-    if (this.hasNoLists()) return;
+    if (!this.hasLists()) return;
     this.element.empty();
     if (this.index === this.lists.length - 1) {
         this.index = -1;
@@ -32,7 +32,7 @@ ListView.prototype.nextList = function() {
 };
 
 ListView.prototype.prevList = function() {
-    if (this.hasNoLists()) return;
+    if (!this.hasLists()) return;
     this.element.empty();
     if (this.index === 0) {
         this.index = this.lists.length;

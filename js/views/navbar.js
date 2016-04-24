@@ -9,7 +9,7 @@ Navbar.prototype.deselectCurrentTab = function() {
 };
 
 Navbar.prototype.addTab = function(listname) {
-    if (!this.hasNoTabs()) this.deselectCurrentTab();
+    if (this.hasTabs()) this.deselectCurrentTab();
     var tab = new Tab(listname);
     this.tabs.push(tab);
     this.index = this.tabs.length - 1;
@@ -23,13 +23,13 @@ Navbar.prototype.render = function() {
     });
 };
 
-Navbar.prototype.hasNoTabs = function() {
-    if (this.tabs.length > 0) return false;
-    return true;
+Navbar.prototype.hasTabs = function() {
+    if (this.tabs.length > 0) return true;
+    return false;
 };
 
 Navbar.prototype.nextTab = function() {
-    if (this.hasNoTabs()) return;
+    if (!this.hasTabs()) return;
     this.deselectCurrentTab();
     if (this.index === this.tabs.length - 1) {
         this.index = -1;
@@ -38,7 +38,7 @@ Navbar.prototype.nextTab = function() {
 };
 
 Navbar.prototype.prevTab = function() {
-    if (this.hasNoTabs()) return;
+    if (!this.hasTabs()) return;
     this.deselectCurrentTab();
     if (this.index === 0) {
         this.index = this.tabs.length;

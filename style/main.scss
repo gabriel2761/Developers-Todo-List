@@ -32,9 +32,10 @@ body {
     .navbar-tab {
         width: 120px;
         padding-bottom: 15px;
+        display: flex;
+        flex: 0 0 120px;
         justify-content: center;
         align-items: flex-end;
-        display: flex;
         color: #ccc;
 
         .tab-label {

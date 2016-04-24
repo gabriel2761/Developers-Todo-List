@@ -7,8 +7,9 @@ InputListName.prototype.make = function(listname) {
     var self = this;
     var key = new KeyMap();
     self.show();
-    self.element.off('keyup');
-    self.element.keyup(function(event) {
+    self.element.prop('readonly', false);
+    self.element.off('keydown');
+    self.element.keydown(function(event) {
 
         if (key.value(event.keyCode) !== 'enter') {
             listname(null);
@@ -22,6 +23,7 @@ InputListName.prototype.make = function(listname) {
             return;
         }
 
+        self.element.prop('readonly', true);
         listname(self.element.val());
     });
 };

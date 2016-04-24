@@ -13,7 +13,7 @@ Hotkeys.prototype.listen = function(callback) {
     $(document).click(function(event) {
         self.element.focus();
     });
-    self.element.keyup(function(event) {
+    self.element.keydown(function(event) {
         console.log(event.keyCode);
         callback(self.keymap.value(event.keyCode));
     });

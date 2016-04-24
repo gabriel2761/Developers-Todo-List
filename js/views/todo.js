@@ -5,7 +5,7 @@ var Todo = function() {
 
 Todo.prototype.make = function(result) {
     var key = new KeyMap();
-    var input = $('<input class="todo-input">');
+    var input = $('<input class="todo-input" readonly>');
     var heading = $('<h3 class="todo-heading"></h3>');
     var element = this.element;
 
@@ -13,7 +13,8 @@ Todo.prototype.make = function(result) {
     this.listview.prepend(this.element);
 
     input.focus();
-    input.keyup(function(event) {
+    input.prop('readonly', false);
+    input.keydown(function(event) {
         if (key.value(event.keyCode) !== 'enter') {
             result(false);
             return;

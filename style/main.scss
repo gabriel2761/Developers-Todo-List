@@ -51,7 +51,7 @@ body {
         color: $secondary-text;
     }
 
-     #input-listname:focus {
+    #input-listname:focus {
         outline-color: $primary-colour;
     }
 }
@@ -63,8 +63,30 @@ body {
     .todo {
         margin: 8px;
         width: 100%;
-        height: 100px;
+        height: 120px;
+        padding: 0 22px;
+        display: flex;
+        align-items: center;
         background-color: #fff;
+
+    }
+
+    .todo-heading {
+        font-size: 26px;
+        color: $secondary-text;
+        font-weight: 200;
+    }
+
+    .todo-input {
+        width: 100%;
+        padding: 16px;
+        font-size: 26px;
+        font-weight: 200;
+        color: $secondary-text;
+    }
+
+    .todo-input:focus {
+        outline-color: $primary-colour;
     }
 }
 

@@ -1,13 +1,26 @@
 var ListView = function() {
     this.element = $('#listview');
-    this.todos = [];
+    this.lists = [];
+    this.index = 0;
+};
+
+ListView.prototype.makeList = function(listname) {
+    this.lists.push(new List(listname));
 };
 
 ListView.prototype.makeTodo = function() {
-    var todos = this.todos;
-    var todo = new Todo();
-    todo.make(function(created) {
-        if (created) todos.push(todo);
-    });
+    if (this.lists.length < 1) {
+        // TODO: Change to a snackbar
+        alert('need to create a list first');
+        return;
+    }
+    this.lists[0].makeTodo();
 };
 
+ListView.prototype.next = function() {
+
+};
+
+ListView.prototype.prev = function() {
+
+};

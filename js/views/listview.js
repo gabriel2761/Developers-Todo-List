@@ -5,12 +5,16 @@ var ListView = function() {
 };
 
 ListView.prototype.makeList = function(listname) {
-    this.lists.push(new List(listname));
+    var list = new List(listname);
+    this.lists.push(list);
+    this.index = this.lists.length - 1;
+    this.element.empty();
+    list.render();
 };
 
 ListView.prototype.makeTodo = function() {
     if (this.hasNoLists()) return;
-    this.lists[0].makeTodo();
+    this.lists[this.index].makeTodo();
 };
 
 ListView.prototype.hasNoLists = function() {

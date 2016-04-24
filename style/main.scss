@@ -1,6 +1,6 @@
 $dark-primary-colour: #512DA8;
 $primary-colour: #673AB7;
-$accent-colour: #03A9F4;
+$accent-colour: #ff5722;
 $primary-text: #212121;
 $secondary-text: #727272;
 $bg-colour: #f5f5f5;
@@ -19,7 +19,7 @@ body {
 
 #navbar {
     width: 100%;
-    height: 40px;
+    height: 60px;
     background-color: $primary-colour;
     display: flex;
     overflow-x: scroll;
@@ -30,14 +30,20 @@ body {
     }
 
     .navbar-tab {
-        width: 100px;
-        margin: 0 16px;
-        text-align: center;
-        color: #aaa;
+        width: 120px;
+        padding-bottom: 15px;
+        justify-content: center;
+        align-items: flex-end;
+        display: flex;
+        color: #ccc;
+
+        .tab-label {
+            margin: 0;
+        }
     }
 
     .navbar-tab.selected {
-        border-bottom: solid 2px $accent-colour;
+        border-bottom: solid 4px $accent-colour;
     }
 }
 

@@ -1,5 +1,5 @@
 var Tab = function(listname) {
-    this.element = $('<div class="navbar-tab"><p>'+listname+'</p></div>');
+    this.element = $('<div class="navbar-tab"><p class="tab-label">'+listname+'</p></div>');
     this.navbar = $('#navbar');
 };
 

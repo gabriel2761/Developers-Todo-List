@@ -40,6 +40,28 @@ ListView.prototype.prevList = function() {
     this.lists[--this.index].render();
 };
 
+ListView.prototype.moveListLeft = function() {
+    if (!this.hasLists()) return;
+    if (this.index === 0) return;
+
+    var temp = this.lists[this.index - 1];
+    this.lists[this.index - 1] = this.lists[this.index];
+    this.lists[this.index] = temp;
+
+    this.index--;
+};
+
+ListView.prototype.moveListRight = function() {
+    if (!this.hasLists()) return;
+    if (this.index === this.lists.length - 1) return;
+
+    var temp = this.lists[this.index + 1];
+    this.lists[this.index + 1] = this.lists[this.index];
+    this.lists[this.index] = temp;
+
+    this.index++;
+};
+
 ListView.prototype.up = function() {
     if (!this.hasLists()) return;
     this.lists[this.index].up();

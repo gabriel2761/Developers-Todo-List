@@ -25,10 +25,10 @@ App.prototype.deleteList = function() {
 
 App.prototype.moveListLeft = function() {
     this.navbar.moveTabLeft();
-
+    this.listview.moveListLeft();
 };
 
 App.prototype.moveListRight = function() {
     this.navbar.moveTabRight();
-
+    this.listview.moveListRight();
 };

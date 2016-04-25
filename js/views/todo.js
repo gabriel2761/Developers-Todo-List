@@ -1,9 +1,22 @@
 var Todo = function() {
     this.element = $('<section class="todo"></section>');
     this.listview = $('#listview');
+    this.title = '';
+};
+
+Todo.prototype.create = function(data) {
+    var heading = $('<h3 class="todo-heading"></h3>');
+    this.title = data.title;
+    heading.append(data.title);
+    this.element.append(heading);
+};
+
+Todo.prototype.getData = function() {
+    return { title: this.title };
 };
 
 Todo.prototype.make = function(result) {
+    var self = this;
     var key = new KeyMap();
     var input = $('<input class="todo-input" placeholder="todo..." readonly>');
     var heading = $('<h3 class="todo-heading"></h3>');
@@ -29,7 +42,9 @@ Todo.prototype.make = function(result) {
             return;
         }
 
-        heading.append(input.val());
+        var title = input.val();
+        self.title = title;
+        heading.append(title);
         element.append(heading);
         result('created');
     });

@@ -1,7 +1,7 @@
 App.prototype.load = function() {
-    this.listview.load();
     this.navbar.load();
     this.navbar.render();
+    this.listview.load();
 };
 
 App.prototype.makeList = function() {

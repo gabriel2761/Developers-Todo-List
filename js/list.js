@@ -1,9 +1,28 @@
 var List = function(data) {
     this.listview = $('#listview');
     this.key = data.key;
+    this.listsync = new ListSync(data.key);
     this.listname = data.listname;
     this.todos = [];
     this.index = 0;
+};
+
+List.prototype.load = function() {
+    var self = this;
+    this.listsync.getTodos().forEach(function(data) {
+        var todo = new Todo();
+        todo.create(data);
+        self.todos.push(todo);
+    });
+    if (this.hasTodos()) this.index = this.todos.length - 1;
+};
+
+List.prototype.syncTodos = function() {
+    var todos = [];
+    this.todos.forEach(function(todo) {
+        todos.push(todo);
+    });
+    this.listsync.syncTodos(todos);
 };
 
 List.prototype.getData = function() {
@@ -30,6 +49,7 @@ List.prototype.makeTodo = function() {
         if (result === 'created') {
             todos.push(todo);
             self.index = todos.length - 1;
+            self.syncTodos();
         } else if (result === 'cancelled') {
             if (self.hasTodos()) {
                 self.todos[self.index].select();

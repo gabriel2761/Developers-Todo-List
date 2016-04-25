@@ -8,8 +8,13 @@ var ListView = function() {
 ListView.prototype.load = function() {
     var self = this;
     this.datasync.getData().forEach(function(data) {
-        self.lists.push(new List(data));
+        var list = new List(data);
+        list.load();
+        self.lists.push(list);
     });
+    if (self.hasLists()) {
+        self.lists[this.index].render();
+    }
 };
 
 ListView.prototype.save = function() {

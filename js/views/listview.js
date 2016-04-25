@@ -90,7 +90,10 @@ ListView.prototype.deleteList = function() {
     this.element.empty();
     this.lists.splice(this.index, 1);
     if (!this.hasLists()) return;
-    if (this.index === this.lists.length - 1) {
+
+    if (this.index === 0) {
+        this.lists[this.index].render();
+    } else if (this.index === this.lists.length - 1) {
         this.lists[this.index].render();
     } else {
         this.lists[--this.index].render();

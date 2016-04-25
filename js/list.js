@@ -123,6 +123,7 @@ List.prototype.deleteSelectedTodo = function() {
     if (!this.hasTodos()) return;
     this.todos[this.index].remove();
     this.todos.splice(this.index, 1);
+    this.save();
     if (!this.hasTodos()) return;
 
     if (this.index === 0) {

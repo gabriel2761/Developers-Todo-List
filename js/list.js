@@ -1,8 +1,13 @@
 var List = function(listname) {
     this.listview = $('#listview');
+    this.key = 'key';
     this.listname = listname;
     this.todos = [];
     this.index = 0;
+};
+
+List.prototype.getData = function() {
+    return { key: this.key, listname: this.listname };
 };
 
 List.prototype.hasTodos = function() {

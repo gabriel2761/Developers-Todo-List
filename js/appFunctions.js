@@ -1,3 +1,7 @@
+App.prototype.load = function() {
+    this.listview.load();
+};
+
 App.prototype.makeList = function() {
     var self = this;
     self.inputListName.make(function(listname) {

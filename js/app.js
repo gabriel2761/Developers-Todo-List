@@ -3,6 +3,7 @@ var App = function() {
     this.inputListName = new InputListName();
     this.navbar = new Navbar();
     this.listview = new ListView();
+    this.datasync = new DataSync();
 };
 
 App.prototype.initializeControls = function() {

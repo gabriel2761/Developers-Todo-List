@@ -2,6 +2,18 @@ var ListView = function() {
     this.element = $('#listview');
     this.lists = [];
     this.index = 0;
+    this.datasync = new DataSync();
+};
+
+ListView.prototype.load = function() {
+    var self = this;
+    this.datasync.getData().forEach(function(data) {
+        self.lists.push(new List(data.listname));
+    });
+};
+
+ListView.prototype.save = function() {
+    this.datasync.syncLists(this.lists);
 };
 
 ListView.prototype.makeList = function(listname) {
@@ -10,6 +22,7 @@ ListView.prototype.makeList = function(listname) {
     this.index = this.lists.length - 1;
     this.element.empty();
     list.render();
+    this.save();
 };
 
 ListView.prototype.makeTodo = function() {

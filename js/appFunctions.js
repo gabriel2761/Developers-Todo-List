@@ -24,7 +24,11 @@ App.prototype.deleteList = function() {
 };
 
 App.prototype.moveListLeft = function() {
+    this.navbar.moveTabLeft();
+
 };
 
 App.prototype.moveListRight = function() {
+    this.navbar.moveTabRight();
+
 };

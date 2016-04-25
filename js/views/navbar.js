@@ -4,6 +4,30 @@ var Navbar = function() {
     this.index = 0;
 };
 
+Navbar.prototype.moveTabLeft = function() {
+    if (!this.hasTabs()) return;
+    if (this.index === 0) return;
+
+    var temp = this.tabs[this.index - 1];
+    this.tabs[this.index - 1] = this.tabs[this.index];
+    this.tabs[this.index] = temp;
+
+    this.index--;
+    this.render();
+};
+
+Navbar.prototype.moveTabRight = function() {
+    if (!this.hasTabs()) return;
+    if (this.index === this.tabs.length - 1) return;
+
+    var temp = this.tabs[this.index + 1];
+    this.tabs[this.index + 1] = this.tabs[this.index];
+    this.tabs[this.index] = temp;
+
+    this.index++;
+    this.render();
+};
+
 Navbar.prototype.deselectCurrentTab = function() {
     this.tabs[this.index].deselect();
 };

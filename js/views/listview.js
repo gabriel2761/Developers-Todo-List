@@ -68,6 +68,7 @@ ListView.prototype.moveListLeft = function() {
     this.lists[this.index] = temp;
 
     this.index--;
+    this.save();
 };
 
 ListView.prototype.moveListRight = function() {
@@ -79,6 +80,7 @@ ListView.prototype.moveListRight = function() {
     this.lists[this.index] = temp;
 
     this.index++;
+    this.save();
 };
 
 ListView.prototype.up = function() {

@@ -17,7 +17,8 @@ ListView.prototype.save = function() {
 };
 
 ListView.prototype.makeList = function(listname) {
-    var list = new List(listname);
+    var key = Math.random().toString(36).substring(2);
+    var list = new List({ key: key, listname: listname });
     this.lists.push(list);
     this.index = this.lists.length - 1;
     this.element.empty();

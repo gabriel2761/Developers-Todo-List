@@ -1,7 +1,7 @@
-var List = function(listname) {
+var List = function(data) {
     this.listview = $('#listview');
-    this.key = 'key';
-    this.listname = listname;
+    this.key = data.key;
+    this.listname = data.listname;
     this.todos = [];
     this.index = 0;
 };

@@ -22,3 +22,9 @@ App.prototype.deleteList = function() {
     this.listview.deleteList();
     this.navbar.deleteTab();
 };
+
+App.prototype.moveListLeft = function() {
+};
+
+App.prototype.moveListRight = function() {
+};

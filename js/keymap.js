@@ -7,12 +7,14 @@ var KeyMap = function() {
         72: 'h',
         74: 'j',
         75: 'k',
-        68: 'd'
+        68: 'd',
     };
     this.shiftMap = {
         68: 'shift+d',
         74: 'shift+j',
         75: 'shift+k',
+        76: 'shift+l',
+        72: 'shift+h',
     };
 };
 

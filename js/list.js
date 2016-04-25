@@ -17,7 +17,7 @@ List.prototype.load = function() {
     if (this.hasTodos()) this.index = this.todos.length - 1;
 };
 
-List.prototype.syncTodos = function() {
+List.prototype.save = function() {
     var todos = [];
     this.todos.forEach(function(todo) {
         todos.push(todo);
@@ -49,7 +49,7 @@ List.prototype.makeTodo = function() {
         if (result === 'created') {
             todos.push(todo);
             self.index = todos.length - 1;
-            self.syncTodos();
+            self.save();
         } else if (result === 'cancelled') {
             if (self.hasTodos()) {
                 self.todos[self.index].select();
@@ -99,6 +99,7 @@ List.prototype.moveTodoUp = function() {
     this.index++;
     this.todos[this.index].select();
     this.render();
+    this.save();
 };
 
 List.prototype.moveTodoDown = function() {
@@ -115,6 +116,7 @@ List.prototype.moveTodoDown = function() {
     this.index--;
     this.todos[this.index].select();
     this.render();
+    this.save();
 };
 
 List.prototype.deleteSelectedTodo = function() {

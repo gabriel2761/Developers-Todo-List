@@ -23,7 +23,6 @@ DataSync.prototype.syncLists = function(lists) {
     });
     this.setData(data);
     this.save();
-    console.log(this.getData());
 };
 
 DataSync.prototype.save = function() {

@@ -2,6 +2,15 @@ var Navbar = function() {
     this.element = $('#navbar');
     this.tabs = [];
     this.index = 0;
+    this.datasync = new DataSync();
+};
+
+Navbar.prototype.load = function() {
+    var self = this;
+    this.datasync.getData().forEach(function(data) {
+        self.tabs.push(new Tab(data.listname));
+    });
+    if (this.hasTabs()) this.tabs[this.index].select();
 };
 
 Navbar.prototype.moveTabLeft = function() {

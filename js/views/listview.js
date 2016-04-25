@@ -8,7 +8,7 @@ var ListView = function() {
 ListView.prototype.load = function() {
     var self = this;
     this.datasync.getData().forEach(function(data) {
-        self.lists.push(new List(data.listname));
+        self.lists.push(new List(data));
     });
 };
 

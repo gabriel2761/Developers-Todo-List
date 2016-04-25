@@ -110,6 +110,7 @@ ListView.prototype.deleteList = function() {
     if (!this.hasLists()) return;
     this.element.empty();
     this.lists.splice(this.index, 1);
+    this.save();
     if (!this.hasLists()) return;
 
     if (this.index === 0) {

@@ -1,4 +1,5 @@
 var List = function(listname) {
+    this.listview = $('#listview');
     this.listname = listname;
     this.todos = [];
     this.index = 0;
@@ -56,6 +57,39 @@ List.prototype.down = function() {
         this.index = this.todos.length;
     }
     this.todos[--this.index].select();
+    this.render();
+};
+
+List.prototype.moveTodoUp = function() {
+    if (!this.hasTodos()) return;
+    if (this.index === this.todos.length - 1) return;
+
+    this.listview.empty();
+    this.todos[this.index].deselect();
+
+    var temp = this.todos[this.index + 1];
+    this.todos[this.index + 1] = this.todos[this.index];
+    this.todos[this.index] = temp;
+
+    this.index++;
+    this.todos[this.index].select();
+    this.render();
+};
+
+List.prototype.moveTodoDown = function() {
+    if (!this.hasTodos()) return;
+    if (this.index === 0) return;
+
+    this.listview.empty();
+    this.todos[this.index].deselect();
+
+    var temp = this.todos[this.index - 1];
+    this.todos[this.index - 1] = this.todos[this.index];
+    this.todos[this.index] = temp;
+
+    this.index--;
+    this.todos[this.index].select();
+    this.render();
 };
 
 List.prototype.deleteSelectedTodo = function() {

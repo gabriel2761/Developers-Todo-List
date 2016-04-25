@@ -50,6 +50,14 @@ ListView.prototype.down = function() {
     this.lists[this.index].down();
 };
 
+ListView.prototype.moveTodoUp = function() {
+    this.lists[this.index].moveTodoUp();
+};
+
+ListView.prototype.moveTodoDown = function() {
+    this.lists[this.index].moveTodoDown();
+};
+
 ListView.prototype.deleteSelectedTodo = function() {
     if (!this.hasLists()) return;
     this.lists[this.index].deleteSelectedTodo();

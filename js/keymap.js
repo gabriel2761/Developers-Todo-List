@@ -10,14 +10,18 @@ var KeyMap = function() {
         68: 'd'
     };
     this.shiftMap = {
-        68: 'shift+d'
+        68: 'shift+d',
+        74: 'shift+j',
+        75: 'shift+k',
     };
 };
 
 KeyMap.prototype.value = function(keyCode) {
+    if (event.shiftKey) return;
     return this.Map[keyCode];
 };
 
 KeyMap.prototype.shiftValue = function(keyCode) {
+    if (!event.shiftKey) return;
     return this.shiftMap[keyCode];
 };

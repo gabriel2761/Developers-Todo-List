@@ -34,6 +34,12 @@ App.prototype.initializeControls = function() {
             case 'shift+d':
                 self.deleteList();
                 break;
+            case 'shift+j':
+                self.listview.moveTodoDown();
+                break;
+            case 'shift+k':
+                self.listview.moveTodoUp();
+                break;
         }
 
         console.log(key);

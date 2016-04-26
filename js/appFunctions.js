@@ -38,3 +38,6 @@ App.prototype.moveListRight = function() {
     this.navbar.moveTabRight();
     this.listview.moveListRight();
 };
+
+App.prototype.editItem = function() {
+};

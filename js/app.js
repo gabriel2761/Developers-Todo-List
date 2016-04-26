@@ -47,6 +47,9 @@ App.prototype.initializeControls = function() {
             case 'shift+l':
                 self.moveListRight();
                 break;
+            case 'e':
+                self.editItem();
+                break;
         }
 
         console.log(key);

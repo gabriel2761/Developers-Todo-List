@@ -8,6 +8,7 @@ var KeyMap = function() {
         74: 'j',
         75: 'k',
         68: 'd',
+        69: 'e'
     };
     this.shiftMap = {
         68: 'shift+d',

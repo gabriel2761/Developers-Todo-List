@@ -31,6 +31,11 @@ ListView.prototype.makeList = function(listname) {
     this.save();
 };
 
+ListView.prototype.editItem = function() {
+    if (!this.hasLists()) return;
+    this.lists[this.index].editTodo();
+};
+
 ListView.prototype.makeTodo = function() {
     if (!this.hasLists()) return;
     this.lists[this.index].makeTodo();

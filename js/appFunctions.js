@@ -40,4 +40,5 @@ App.prototype.moveListRight = function() {
 };
 
 App.prototype.editItem = function() {
+    this.listview.editItem();
 };

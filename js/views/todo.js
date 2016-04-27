@@ -15,6 +15,42 @@ Todo.prototype.getData = function() {
     return { title: this.title };
 };
 
+Todo.prototype.edit = function(changed) {
+    var self = this;
+    var key = new KeyMap();
+    var input = $('<input class="todo-input" placeholder="todo..." readonly>');
+    var heading = $('<h3 class="todo-heading"></h3>');
+    var element = this.element;
+
+    element.empty();
+    element.append(input);
+    input.val(this.title);
+    input.focus();
+    input.prop('readonly', false);
+
+    input.keydown(function(event) {
+        if (key.value(event.keyCode) !== 'enter') {
+            changed(false);
+            return;
+        }
+        var title = input.val();
+        self.title = title;
+        heading.append(title);
+        element.append(heading);
+        input.remove();
+        $(document).click();
+        changed(true);
+    });
+
+    input.focusout(function() {
+        heading.append(self.title);
+        element.append(heading);
+        input.remove();
+        $(document).click();
+        changed(false);
+    });
+};
+
 Todo.prototype.make = function(result) {
     var self = this;
     var key = new KeyMap();

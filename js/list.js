@@ -34,6 +34,13 @@ List.prototype.hasTodos = function() {
     return false;
 };
 
+List.prototype.editTodo = function() {
+    var self = this;
+    self.todos[this.index].edit(function(changed) {
+        if (changed) self.save();
+    });
+};
+
 List.prototype.makeTodo = function() {
     var self = this;
     var todos = this.todos;

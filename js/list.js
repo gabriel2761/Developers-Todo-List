@@ -75,19 +75,15 @@ List.prototype.render = function() {
 
 List.prototype.up = function() {
     if (!this.hasTodos()) return;
+    if (this.index === this.todos.length - 1) return;
     this.todos[this.index].deselect();
-    if (this.index === this.todos.length - 1) {
-        this.index = -1;
-    }
     this.todos[++this.index].select();
 };
 
 List.prototype.down = function() {
     if (!this.hasTodos()) return;
+    if (this.index === 0) return;
     this.todos[this.index].deselect();
-    if (this.index === 0) {
-        this.index = this.todos.length;
-    }
     this.todos[--this.index].select();
     this.render();
 };

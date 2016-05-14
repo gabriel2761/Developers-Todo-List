@@ -99,6 +99,7 @@ body {
         font-size: 26px;
         font-weight: 300;
         color: $secondary-text;
+        resize: none;
     }
 
     .todo-input:focus {

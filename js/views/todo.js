@@ -18,7 +18,7 @@ Todo.prototype.getData = function() {
 Todo.prototype.edit = function(changed) {
     var self = this;
     var key = new KeyMap();
-    var input = $('<input class="todo-input" placeholder="todo..." readonly>');
+    var input = $('<textarea class="todo-input" placeholder="todo..." readonly>');
     var heading = $('<h3 class="todo-heading"></h3>');
     var element = this.element;
 

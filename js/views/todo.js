@@ -29,6 +29,10 @@ Todo.prototype.edit = function(changed) {
     input.prop('readonly', false);
 
     input.keydown(function(event) {
+        if (key.value(event.keyCode) === 'esc') {
+            $(document).click();
+            return;
+        }
         if (key.value(event.keyCode) !== 'enter') {
             changed(false);
             return;
@@ -64,6 +68,10 @@ Todo.prototype.make = function(result) {
     input.focus();
     input.prop('readonly', false);
     input.keydown(function(event) {
+        if (key.value(event.keyCode) === 'esc') {
+            $(document).click();
+            return;
+        }
         if (key.value(event.keyCode) !== 'enter') {
             result(null);
             return;

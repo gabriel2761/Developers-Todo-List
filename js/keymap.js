@@ -1,6 +1,7 @@
 var KeyMap = function() {
     this.Map = {
         13: 'enter',
+        27: 'esc',
         84: 't',
         191: '/',
         76: 'l',

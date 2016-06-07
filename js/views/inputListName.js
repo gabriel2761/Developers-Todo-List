@@ -11,6 +11,12 @@ InputListName.prototype.make = function(listname) {
     self.element.off('keydown');
     self.element.keydown(function(event) {
 
+        if (key.value(event.keyCode) === 'esc') {
+            $(document).click();
+            listname(null);
+            return;
+        }
+
         if (key.value(event.keyCode) !== 'enter') {
             listname(null);
             return;
@@ -18,7 +24,7 @@ InputListName.prototype.make = function(listname) {
 
         $(document).click();
 
-        if (self.element.val() === '') {
+        if (self.element.val() === '' || key.value(event.keyCode) === 'esc') {
             listname(null);
             return;
         }

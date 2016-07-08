@@ -14,7 +14,7 @@ App.prototype.initializeControls = function() {
             case 't':
                 self.makeList();
                 break;
-            case '/':
+            case 'i':
                 self.listview.makeTodo();
                 break;
             case 'l':
@@ -29,10 +29,10 @@ App.prototype.initializeControls = function() {
             case 'k':
                 self.listview.up();
                 break;
-            case 'd':
+            case 'x':
                 self.listview.deleteSelectedTodo();
                 break;
-            case 'shift+d':
+            case 'shift+x':
                 self.deleteList();
                 break;
             case 'shift+j':
@@ -47,7 +47,7 @@ App.prototype.initializeControls = function() {
             case 'shift+l':
                 self.moveListRight();
                 break;
-            case 'e':
+            case 'c':
                 self.editItem();
                 break;
         }

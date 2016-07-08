@@ -3,16 +3,16 @@ var KeyMap = function() {
         13: 'enter',
         27: 'esc',
         84: 't',
-        191: '/',
+        73: 'i',
         76: 'l',
         72: 'h',
         74: 'j',
         75: 'k',
-        68: 'd',
-        69: 'e'
+        88: 'x',
+        67: 'c'
     };
     this.shiftMap = {
-        68: 'shift+d',
+        88: 'shift+x',
         74: 'shift+j',
         75: 'shift+k',
         76: 'shift+l',
